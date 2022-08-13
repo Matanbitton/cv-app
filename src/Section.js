@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import uniqid from "uniqid";
+import Education from "./Education";
+import Work from "./Work";
+import Projects from "./Projects";
+import Skills from "./Skills";
+import Info from "./Info";
 
 export default function Section({
   title,
@@ -14,6 +19,8 @@ export default function Section({
   phone,
   position,
   skills,
+  handleRemove,
+  id,
 }) {
   const [isInput, setInput] = useState(false);
   const [text, setText] = useState(title);
@@ -33,7 +40,8 @@ export default function Section({
     return skills.map((skill) => (
       <p
         id={getUniqID()}
-        onClick={handleRemoveSkill}
+        onDoubleClick={handleRemoveSkill}
+        key={getUniqID()}
         className="bg-slate-400 text-white rounded-md px-2 text-md"
       >
         {skill}
@@ -59,12 +67,13 @@ export default function Section({
     setSkill(() => e.target.value);
   }
   useEffect(() => {
-    if (buttonPress === true) {
+    if (buttonPress) {
       setSkillsCV((prev) => [
         ...prev,
         <p
-          onClick={handleRemoveSkill}
+          onDoubleClick={handleRemoveSkill}
           id={getUniqID()}
+          key={getUniqID()}
           className="bg-slate-400 text-white rounded-md px-2 text-md"
         >
           {skill}
@@ -83,9 +92,9 @@ export default function Section({
   }
 
   function handleAddButton() {
-    console.log({ skillsCV });
     const newSkill = (
       <Input
+        key={getUniqID()}
         handleInput={handleSkill}
         handleClick={(e) => {
           e.preventDefault();
@@ -98,70 +107,98 @@ export default function Section({
     setSkillsCV((prevSkills) => [...prevSkills, newSkill]);
   }
 
-  return (
-    <div className="p-2 hover:bg-slate-200 cursor-pointer">
-      {type === "Info" && (
-        <div className=" border-sky-500 border-b-2 ">
-          {!isInput && (
+  function toggleInput(type) {
+    if (type === "Info" && !isInput) {
+      return (
+        <Info
+          key={1}
+          handleName={handleName}
+          nameCV={
             <p
               onClick={handleName}
               className="font-bold text-sky-500 text-center flex justify-center text-3xl border-sky-500  hover:bg-slate-300"
             >
               {nameCV}
             </p>
-          )}
-          {isInput && (
-            <div className="flex justify-center">
+          }
+          handleNameText={handleNameText}
+          email={email}
+          phone={phone}
+          gitHub={gitHub}
+        />
+      );
+    }
+    if (type === "Info" && isInput) {
+      return (
+        <div className="flex justify-center">
+          <Info
+            key={1}
+            handleName={handleName}
+            nameCV={
               <Input
                 handleInput={handleNameText}
                 handleClick={handleName}
                 placeholder={text}
               />
-            </div>
-          )}
-          <div className="flex gap-2 text-sm justify-center">
-            <p className="hover:bg-slate-300">{email}</p>
-            <p className="hover:bg-slate-300">{phone}</p>
-            <p className="hover:bg-slate-300">{gitHub}</p>
-          </div>
+            }
+            handleNameText={handleNameText}
+            email={email}
+            phone={phone}
+            gitHub={gitHub}
+          />
         </div>
+      );
+    }
+  }
+
+  return (
+    <div className="p-2 hover:bg-slate-200 cursor-pointer">
+      {toggleInput(type)}
+
+      {type === "Education" && (
+        <Education
+          key={3}
+          description={description}
+          startDate={startDate}
+          endDate={endDate}
+          position={position}
+          handleRemove={handleRemove}
+          text={title}
+          id={id}
+        />
       )}
-      {(type === "Education" || type === "Work") && (
-        <div className="text-sm flex  justify-between">
-          <div>
-            <h2 className="font-bold text-lg text-sky-500 ">{text}</h2>
-            <p className="hover:bg-slate-300">{position}</p>
-          </div>
-          <div className="flex gap-2">
-            <p className="hover:bg-slate-300">{startDate} -</p>
-            <p className="hover:bg-slate-300"> {endDate}</p>
-          </div>
-        </div>
-      )}
-      {type === "Projects" && (
-        <div className="text-sm">
-          <h2 className="font-bold text-lg text-sky-500 ">{text}</h2>
-          <p className="hover:bg-slate-300"></p>
-        </div>
-      )}
-      {type === "Skills" ? (
-        <div>
-          <h2 className="font-bold text-lg text-sky-500 ">{text}</h2>
-          <div className="flex gap-2 flex-wrap ">
-            {skillsCV}
-            <button
-              onClick={handleAddButton}
-              className="bg-sky-500 text-white px-2 rounded-md text-md"
-            >
-              +
-            </button>
-          </div>
-        </div>
-      ) : (
-        ""
+      {type === "Work" && (
+        <Work
+          key={2}
+          id={id}
+          handleRemove={handleRemove}
+          text={title}
+          description={description}
+          startDate={startDate}
+          endDate={endDate}
+          position={position}
+        />
       )}
 
-      <p className="text-sm hover:bg-slate-300">{description}</p>
+      {type === "Projects" && (
+        <Projects
+          key={4}
+          text={title}
+          hanleRemove={handleRemove}
+          id={id}
+          description={description}
+        />
+      )}
+      {type === "Skills" && (
+        <Skills
+          key={5}
+          id={id}
+          handleAddButton={handleAddButton}
+          handleRemove={handleRemove}
+          text={title}
+          skillsCV={skillsCV}
+        />
+      )}
     </div>
   );
 }
