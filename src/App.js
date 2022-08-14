@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.css";
 import Section from "./Section";
+import uniqid from "uniqid";
 
 function App() {
   const initialSection = [
     <Section
+      key={uniqid()}
       type="Info"
       name="John Does"
       gitHub="github/matanbitton.com"
@@ -12,14 +14,21 @@ function App() {
       phone="0525531234"
     />,
     <Section
+      key={uniqid()}
+      id={uniqid()}
+      handleRemove={handleRemoveSection}
       type="Work"
       title="Work Experience"
       position="Software Engineer"
+      company="StartUp"
       startDate="24/11/22"
       endDate="24/11/23"
-      description="Worked at XxXXx Company Doing XxXX things"
+      description="Worked at StartUp Doing XxXX things"
     />,
     <Section
+      key={uniqid()}
+      id={uniqid()}
+      handleRemove={handleRemoveSection}
       type="Education"
       title="Education"
       position="Bachelors Degree"
@@ -27,18 +36,49 @@ function App() {
       endDate="24/11/23"
       description="Learned C++ and stuff"
     />,
-    <Section type="Skills" title="Skills" skills={["JavaScript", "PHP"]} />,
+    <Section
+      key={uniqid()}
+      id={uniqid()}
+      handleRemove={handleRemoveSection}
+      type="Skills"
+      title="Skills"
+      skills={["JavaScript", "PHP"]}
+    />,
   ];
 
   const [section, setSection] = useState(initialSection);
+
+  useEffect(() => {
+    console.log(section);
+  }, [section]);
 
   function handleEducation() {
     setSection((prevSection) => [
       ...prevSection,
       <Section
+        id={uniqid()}
+        key={uniqid()}
+        handleRemove={handleRemoveSection}
         type="Education"
         title="Education"
         position="Degree"
+        startDate="Start Date"
+        endDate="End Date"
+        description="Description"
+      />,
+    ]);
+  }
+  function handleWork() {
+    setSection((prevSection) => [
+      ...prevSection,
+      <Section
+        id={uniqid()}
+        key={uniqid()}
+        handleRemove={handleRemoveSection}
+        type="Work"
+        title="Work Experience"
+        position="Position"
+        company="Company"
         startDate="Start Date"
         endDate="End Date"
         description="Description"
@@ -49,6 +89,9 @@ function App() {
     setSection((prevSection) => [
       ...prevSection,
       <Section
+        key={uniqid()}
+        id={uniqid()}
+        handleRemove={handleRemoveSection}
         type="Skills"
         title="Skills"
         skills={["PHP", "JavaScript", "Click Me To Change"]}
@@ -59,6 +102,9 @@ function App() {
     setSection((prevSection) => [
       ...prevSection,
       <Section
+        key={uniqid()}
+        id={uniqid()}
+        handleRemove={handleRemoveSection}
         type="Education"
         title="Click me to change title"
         position="Change info"
@@ -72,11 +118,23 @@ function App() {
     setSection((prevSection) => [
       ...prevSection,
       <Section
+        key={uniqid()}
+        id={uniqid()}
+        handleRemove={handleRemoveSection}
         type="Projects"
         title="Projects"
         description="write here about the project"
       />,
     ]);
+  }
+  function handleRemoveSection(e) {
+    setSection((prevSection) =>
+      prevSection.filter((section) => {
+        console.log({ Section: section });
+        console.log({ target: e.target.id });
+        return section.props.id !== e.target.id;
+      })
+    );
   }
 
   return (
@@ -112,6 +170,12 @@ function App() {
             className="px-4  rounded text-xl text-white  bg-sky-500"
           >
             +Custom
+          </button>
+          <button
+            onClick={handleWork}
+            className="px-4  rounded text-xl text-white  bg-sky-500"
+          >
+            +Work Experience
           </button>
         </div>
 
