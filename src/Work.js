@@ -6,6 +6,7 @@ export default function Work({
   handleRemove,
   text,
   id,
+  company,
 }) {
   return (
     <div
@@ -15,12 +16,19 @@ export default function Work({
     >
       <div>
         <h2 className="font-bold text-lg text-sky-500 ">{text}</h2>
-        <p className="hover:bg-slate-300">{position}</p>
-        <p className="hover:bg-slate-300"> {description}</p>
-      </div>
-      <div className="flex gap-2">
-        <p className="hover:bg-slate-300">{startDate} -</p>
-        <p className="hover:bg-slate-300"> {endDate}</p>
+        <p className="hover:bg-slate-300 text-md underline font-medium p-0 m-0">
+          {company}
+        </p>
+
+        <div className="flex  gap-2  max-h-4 ">
+          <p className="hover:bg-slate-300 max-h-fit  p-0">{position}</p>
+          <p className="hover:bg-slate-300  p-0 m-0">{startDate}</p>-
+          <p className="hover:bg-slate-300  p-0 m-0">{endDate}</p>
+        </div>
+        <p className="hover:bg-slate-300 max-h-fit max-w-fit p-0 m-0">
+          {" "}
+          {description}
+        </p>
       </div>
     </div>
   );
