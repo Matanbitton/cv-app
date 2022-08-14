@@ -21,6 +21,7 @@ export default function Section({
   skills,
   handleRemove,
   id,
+  company,
 }) {
   const [isInput, setInput] = useState(false);
   const [text, setText] = useState(title);
@@ -111,7 +112,7 @@ export default function Section({
     if (type === "Info" && !isInput) {
       return (
         <Info
-          key={1}
+          key={id}
           handleName={handleName}
           nameCV={
             <p
@@ -132,7 +133,7 @@ export default function Section({
       return (
         <div className="flex justify-center">
           <Info
-            key={1}
+            key={id}
             handleName={handleName}
             nameCV={
               <Input
@@ -156,20 +157,22 @@ export default function Section({
       {toggleInput(type)}
 
       {type === "Education" && (
-        <Education
-          key={3}
-          description={description}
-          startDate={startDate}
-          endDate={endDate}
-          position={position}
-          handleRemove={handleRemove}
-          text={title}
-          id={id}
-        />
+        <div id={id} onDoubleClick={handleRemove}>
+          <Education
+            key={id}
+            id={id}
+            description={description}
+            startDate={startDate}
+            endDate={endDate}
+            position={position}
+            handleRemove={handleRemove}
+            text={title}
+          />
+        </div>
       )}
       {type === "Work" && (
         <Work
-          key={2}
+          key={id}
           id={id}
           handleRemove={handleRemove}
           text={title}
@@ -177,27 +180,32 @@ export default function Section({
           startDate={startDate}
           endDate={endDate}
           position={position}
+          company={company}
         />
       )}
 
       {type === "Projects" && (
-        <Projects
-          key={4}
-          text={title}
-          hanleRemove={handleRemove}
-          id={id}
-          description={description}
-        />
+        <div id={id} onDoubleClick={handleRemove}>
+          <Projects
+            key={id}
+            id={id}
+            text={title}
+            handleRemove={handleRemove}
+            description={description}
+          />
+        </div>
       )}
       {type === "Skills" && (
-        <Skills
-          key={5}
-          id={id}
-          handleAddButton={handleAddButton}
-          handleRemove={handleRemove}
-          text={title}
-          skillsCV={skillsCV}
-        />
+        <div id={id} onDoubleClick={handleRemove}>
+          <Skills
+            key={id}
+            id={id}
+            handleAddButton={handleAddButton}
+            handleRemove={handleRemove}
+            text={title}
+            skillsCV={skillsCV}
+          />
+        </div>
       )}
     </div>
   );
