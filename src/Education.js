@@ -16,7 +16,7 @@ export default function Education({
         <h2 className="font-bold text-lg text-sky-500 ">{text}</h2>
         <p className="hover:bg-slate-300">{position}</p>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2  max-h-4 max-w-fit">
         <p className="hover:bg-slate-300">{startDate} -</p>
         <p className="hover:bg-slate-300"> {endDate}</p>
       </div>
