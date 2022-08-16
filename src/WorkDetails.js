@@ -1,4 +1,5 @@
 import { useState } from "react";
+import uniqid from "uniqid";
 
 export default function WorkDetails({
   company,
@@ -6,6 +7,9 @@ export default function WorkDetails({
   startDate,
   endDate,
   description,
+  handleClick,
+  handleRemove,
+  id,
 }) {
   const [jobTitleArr, setJobTitleArr] = useState([
     {
@@ -29,37 +33,31 @@ export default function WorkDetails({
       ];
     });
   }
+
   return (
-    <div>
+    <div id={id} onDoubleClick={handleRemove}>
       {jobTitleArr.map((jobTitle) => (
-        <div className="flex  align-start gap-2 l w-full">
-          <p
-            className="hover:bg-slate-300 text-md  font-medium p-0 m-0"
-            key={Math.random()}
-          >
+        <div key={uniqid()} className="flex  align-start gap-2 l max-w-full">
+          <p className="hover:bg-slate-300 text-md  font-medium p-0 m-0">
             {jobTitle.company} -
           </p>
-          <p
-            className="hover:bg-slate-300 max-h-fit italic"
-            key={Math.random()}
-          >
+          <p className="hover:bg-slate-300 max-h-fit italic">
             {jobTitle.position}
           </p>
-          <p className="hover:bg-slate-300 italic p-0 m-0" key={Math.random()}>
+          <p className="hover:bg-slate-300 italic p-0 m-0">
             {jobTitle.startDate} -
           </p>
-          <p className="hover:bg-slate-300 italic p-0 m-0" key={Math.random()}>
+          <p className="hover:bg-slate-300 italic p-0 m-0">
             {jobTitle.endDate}
           </p>
         </div>
       ))}
-      <div className="flex flex-col max-h-full ">
+      <div className="flex flex-col max-h-full max-w-full ">
         {jobDescriptionArr.map((description) => (
-          <div>
+          <div key={uniqid()}>
             <p
               onClick={handleClick}
               className="hover:bg-slate-300 max-h-fit  p-0 m-0"
-              key={Math.random()}
             >
               {description}
             </p>
@@ -67,7 +65,7 @@ export default function WorkDetails({
         ))}
         <button
           onClick={handleDescription}
-          className="rounded bg-sky-500 px-2 text-white max-w-fit"
+          className="rounded bg-sky-500 px-2 mb-2 text-white max-w-fit"
         >
           + Description
         </button>
