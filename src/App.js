@@ -23,7 +23,7 @@ function App() {
       company="StartUp"
       startDate="24/11/22"
       endDate="24/11/23"
-      description="Worked at StartUp Doing XxXX things"
+      description=" - Worked at StartUp Doing XxXX things"
     />,
     <Section
       key={uniqid()}
@@ -130,11 +130,12 @@ function App() {
   function handleRemoveSection(e) {
     setSection((prevSection) =>
       prevSection.filter((section) => {
-        console.log({ Section: section });
-        console.log({ target: e.target.id });
         return section.props.id !== e.target.id;
       })
     );
+  }
+  function removeAllButtons() {
+    const buttons = document.querySelectorAll("button");
   }
 
   return (
@@ -179,9 +180,8 @@ function App() {
           </button>
         </div>
 
-        <div className=" shadow-lg mr-16 border-sky-600 border-4 p-4 rounded-md justify-center overflow-hidden max-h-screen max-w-lg min-w-full bg-gray-100 text-gray-800">
+        <div className=" shadow-lg mr-16 border-sky-600 border-4 p-4 rounded-md  justify-center overflow-hidden max-h-screen max-w-lg min-w-full  bg-gray-100 text-gray-800">
           {section}
-          <div className="flex justify-center"></div>
         </div>
       </div>
     </div>
