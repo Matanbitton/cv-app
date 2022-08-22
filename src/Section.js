@@ -7,6 +7,8 @@ import Projects from "./Projects";
 import Skills from "./Skills";
 import Info from "./Info";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function Section({
   title,
   description,
@@ -27,6 +29,7 @@ export default function Section({
   const [text, setText] = useState(title);
   const [nameCV, setName] = useState(name);
   const [buttonPress, setButtonPress] = useState(false);
+  const [descriptionCV, setDescription] = useState(description);
 
   const [skillsCV, setSkillsCV] = useState(
     skills ? skillsToElements(skills) : ""
@@ -55,6 +58,9 @@ export default function Section({
   }
   function handleText(event) {
     setText(() => event.target.value);
+  }
+  function handleDescription(e) {
+    setDescription(() => e.target.value);
   }
   function handleRemoveSkill(e) {
     setSkillsCV((prevSkills) =>
@@ -108,7 +114,7 @@ export default function Section({
     setSkillsCV((prevSkills) => [...prevSkills, newSkill]);
   }
 
-  function toggleInput(type) {
+  function toggleInput() {
     if (type === "Info" && !isInput) {
       return (
         <Info
@@ -154,7 +160,7 @@ export default function Section({
 
   return (
     <div className="p-2 hover:bg-slate-200 cursor-pointer">
-      {toggleInput(type)}
+      {toggleInput()}
 
       {type === "Education" && (
         <div id={id} onDoubleClick={handleRemove}>
@@ -171,17 +177,31 @@ export default function Section({
         </div>
       )}
       {type === "Work" && (
-        <Work
-          key={id}
+        <div
+          className="group relative flex"
           id={id}
-          handleRemove={handleRemove}
-          text={title}
-          description={description}
-          startDate={startDate}
-          endDate={endDate}
-          position={position}
-          company={company}
-        />
+          onDoubleClick={handleRemove}
+        >
+          <div className="w-5/6">
+            <Work
+              key={id}
+              id={id}
+              handleDescription={handleDescription}
+              handleClick={handleClick}
+              handleRemove={handleRemove}
+              text={title}
+              description={descriptionCV}
+              startDate={startDate}
+              endDate={endDate}
+              position={position}
+              company={company}
+            />
+          </div>
+          <div className="align-end justify-end flex w-2/6 h-2/6">
+            <button className=" bg-red-500 text-black border rounded-xl m-0 px-2 justify-end  hidden group-hover:block"></button>
+            <FontAwesomeIcon icon="fa-solid fa-xmark" />
+          </div>
+        </div>
       )}
 
       {type === "Projects" && (
