@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./index.css";
 import Input from "./Input";
 import uniqid from "uniqid";
 import Education from "./Education";
@@ -8,6 +9,7 @@ import Skills from "./Skills";
 import Info from "./Info";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function Section({
   title,
@@ -178,29 +180,27 @@ export default function Section({
       )}
       {type === "Work" && (
         <div
-          className="group relative flex"
+          className="group flex gap-8 justify-between "
           id={id}
           onDoubleClick={handleRemove}
         >
-          <div className="w-5/6">
-            <Work
-              key={id}
-              id={id}
-              handleDescription={handleDescription}
-              handleClick={handleClick}
-              handleRemove={handleRemove}
-              text={title}
-              description={descriptionCV}
-              startDate={startDate}
-              endDate={endDate}
-              position={position}
-              company={company}
-            />
-          </div>
-          <div className="align-end justify-end flex w-2/6 h-2/6">
-            <button className=" bg-red-500 text-black border rounded-xl m-0 px-2 justify-end  hidden group-hover:block"></button>
-            <FontAwesomeIcon icon="fa-solid fa-xmark" />
-          </div>
+          <Work
+            key={id}
+            id={id}
+            handleDescription={handleDescription}
+            handleClick={handleClick}
+            handleRemove={handleRemove}
+            text={title}
+            description={descriptionCV}
+            startDate={startDate}
+            endDate={endDate}
+            position={position}
+            company={company}
+          />
+
+          <button className="round-animation bg-red-500 text-white border h-full m-0 content-end px-2 py-1 hidden group-hover:block">
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
         </div>
       )}
 
