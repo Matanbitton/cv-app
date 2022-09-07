@@ -127,10 +127,11 @@ function App() {
       />,
     ]);
   }
-  function handleRemoveSection(e) {
+  function handleRemoveSection(id) {
     setSection((prevSection) =>
       prevSection.filter((section) => {
-        return section.props.id !== e.target.id;
+        console.log(section);
+        return section.props.id !== id;
       })
     );
   }
