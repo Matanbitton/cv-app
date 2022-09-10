@@ -135,54 +135,58 @@ function App() {
       })
     );
   }
-  function removeAllButtons() {
-    const buttons = document.querySelectorAll("button");
-  }
 
   return (
     <div
-      className=" h-screen
-       flex flex-col justify-start gap-4 items-center bg-gray-900 text-white text-xxl w-screen "
+      className="relative h-screen
+       flex flex-col justify-start gap-4 items-center w-full bg-gray-900 text-white text-xxl overflow-scroll "
     >
-      <p className=" bg-gradient-to-r from-gray-900 via-sky-600 to-gray-900 text-4xl p-2 text-center font-bold w-full">
-        Easy CV
-      </p>
-      <div className="flex gap-2 w-90 justify-center mr-24 ">
-        <div className="flex flex-col gap-2 p-4">
-          <button
-            onClick={handleSkills}
-            className="px-4  rounded text-xl text-white  bg-sky-500"
-          >
-            +Skills
-          </button>
-          <button
-            onClick={handleEducation}
-            className="px-4  rounded text-xl text-white  bg-sky-500"
-          >
-            +Education
-          </button>
-          <button
-            onClick={handleProjects}
-            className="px-4  rounded text-xl text-white  bg-sky-500"
-          >
-            +Projects
-          </button>
-          <button
-            onClick={handleCustom}
-            className="px-4  rounded text-xl text-white  bg-sky-500"
-          >
-            +Custom
-          </button>
-          <button
-            onClick={handleWork}
-            className="px-4  rounded text-xl text-white  bg-sky-500"
-          >
-            +Work Experience
-          </button>
-        </div>
+      {" "}
+      <div className="header flex gap-5 box-border bg-sky-500  p-3 pb-24 justify-between items-center font-bold w-full">
+        <p className="text-4xl text-center pl-4">Easy CV</p>
+        <p className="text-xl text-center  pr-4">
+          The easier way to build a resume
+        </p>
+      </div>
+      <div className="flex flex-col gap-2 p-4 mt-24 absolute left-24">
+        <button
+          onClick={handleSkills}
+          className="px-4  rounded text-xl text-white  bg-sky-500"
+        >
+          +Skills
+        </button>
+        <button
+          onClick={handleEducation}
+          className="px-4  rounded text-xl text-white  bg-sky-500"
+        >
+          +Education
+        </button>
+        <button
+          onClick={handleProjects}
+          className="px-4  rounded text-xl text-white  bg-sky-500"
+        >
+          +Projects
+        </button>
+        <button
+          onClick={handleCustom}
+          className="px-4  rounded text-xl text-white  bg-sky-500"
+        >
+          +Custom
+        </button>
+        <button
+          onClick={handleWork}
+          className="px-4  rounded text-xl text-white  bg-sky-500"
+        >
+          +Work Experience
+        </button>
+      </div>
+      <div className="flex gap-2  justify-center  ">
+        <div className="absolute top-20  flex gap-10">
+          <div className=" shadow-lg p-4 rounded-md  justify-center overflow-hidden max-h-[1080px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800"></div>
 
-        <div className=" shadow-lg mr-16 border-sky-600 border-4 p-4 rounded-md  justify-center overflow-hidden max-h-screen max-w-lg min-w-full  bg-gray-100 text-gray-800">
-          {section}
+          <div className=" shadow-lg  p-4 rounded-md  justify-center overflow-hidden max-h-[1080px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800">
+            {section}
+          </div>
         </div>
       </div>
     </div>
