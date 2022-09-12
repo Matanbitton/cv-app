@@ -6,9 +6,9 @@ export default function PersonalInfo({
 }) {
   return (
     <div className="flex-col flex gap-2">
-      <div className="flex  justify-evenly">
+      <div className="flex justify-evenly">
         <input
-          className="rounded border-gray-900 border pl-2  focus:border-sky-500"
+          className="rounded border-gray-900 border pl-2  "
           onChange={handlePersonalInfoChange}
           type="text"
           placeholder="First Name"
