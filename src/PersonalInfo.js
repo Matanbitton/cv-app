@@ -8,7 +8,7 @@ export default function PersonalInfo({
     <div className="flex-col flex gap-2">
       <div className="flex justify-evenly">
         <input
-          className="rounded border-gray-900 border pl-2  "
+          className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
           onChange={handlePersonalInfoChange}
           type="text"
           placeholder="First Name"
@@ -16,7 +16,7 @@ export default function PersonalInfo({
           value={personalInfo.firstName}
         ></input>
         <input
-          className="rounded border-gray-900 border pl-2"
+          className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
           border
           onChange={handlePersonalInfoChange}
           type="text"
@@ -27,27 +27,29 @@ export default function PersonalInfo({
       </div>
       <div className="flex justify-evenly">
         <input
-          className="rounded border-gray-900 border pl-2"
+          className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600 shadow pl-2"
           border
           onChange={handlePersonalInfoChange}
           type="tel"
           placeholder="Phone Number"
           name="phoneNumber"
           value={personalInfo.phoneNumber}
+          pattern="^0?(([23489]{1}[0-9]{7})|[57]{1}[0-9]{8})+$"
         ></input>
         <input
-          className="rounded border-gray-900 border pl-2"
+          className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none  invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600 shadow pl-2"
           border
           onChange={handlePersonalInfoChange}
           type="email"
           placeholder="Email"
           name="email"
           value={personalInfo.email}
+          pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
         ></input>
       </div>
       <div className="flex justify-evenly">
         <input
-          className="rounded border-gray-900 border pl-2"
+          className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
           onChange={handlePersonalInfoChange}
           type="text"
           placeholder="Linkedin Link"
@@ -55,7 +57,7 @@ export default function PersonalInfo({
           value={personalInfo.linkedinLink}
         ></input>
         <input
-          className="rounded border-gray-900 border pl-2"
+          className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
           onChange={handlePersonalInfoChange}
           type="text"
           placeholder="Personal Website / Github Link"
