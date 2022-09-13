@@ -51,7 +51,7 @@ export default function Form() {
                 value={personalInfo.summarySection}
                 name="summarySection"
                 onChange={handlePersonalInfoChange}
-                className=" h-24 w-[80%] p-2"
+                className=" h-24 w-[80%] p-2 border focus:border-sky-500 focus:outline-none"
               ></textarea>
             </div>
           )}
