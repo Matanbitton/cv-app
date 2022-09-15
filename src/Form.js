@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
+import uniqid from "uniqid";
+
+import WorkExp from "./WorkExp";
 
 export default function Form() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -14,14 +17,36 @@ export default function Form() {
   });
   const [showSummay, setShowSummary] = useState(false);
 
+  const [workExperience, SetWorkExperience] = useState({
+    id: uniqid(),
+    company: "",
+    position: "",
+    startDate: "",
+    endDate: "",
+    bulletPoints: [],
+  });
+
+  const [workArr, setWorkArr] = useState([]);
+  console.log(workArr);
+
   function handlePersonalInfoChange(event) {
-    setPersonalInfo((prevForm) => {
-      return { ...prevForm, [event.target.name]: event.target.value };
+    setPersonalInfo((prevInfo) => {
+      return { ...prevInfo, [event.target.name]: event.target.value };
     });
-    console.log(personalInfo);
   }
   function handleSummary() {
     setShowSummary((prevShow) => !prevShow);
+  }
+
+  function handleWorkExperience(event) {
+    SetWorkExperience((prevWork) => {
+      return { ...prevWork, [event.target.name]: event.target.value };
+    });
+    console.log(workExperience);
+  }
+  function handleWorkArr(e) {
+    e.preventDefault();
+    setWorkArr((prevArr) => [...prevArr, { ...workExperience, id: uniqid() }]);
   }
 
   return (
@@ -36,18 +61,20 @@ export default function Form() {
             handlePersonalInfoChange={handlePersonalInfoChange}
             personalInfo={personalInfo}
           />
-          <div className="flex gap-2 justify-center">
+          <span className="flex gap-2 justify-center">
             <label for="summary">Add Summary Section?</label>
             <input
+              className="checked:bg-red-500 bg-slate-700"
               id="summary"
               type="checkbox"
               value="summary"
               onChange={handleSummary}
             ></input>
-          </div>
+          </span>
           {showSummay && (
             <div className="flex justify-center">
               <textarea
+                placeholder="Write a descriptive summary about you here..."
                 value={personalInfo.summarySection}
                 name="summarySection"
                 onChange={handlePersonalInfoChange}
@@ -55,6 +82,33 @@ export default function Form() {
               ></textarea>
             </div>
           )}
+          <div className=" flex justify-center">
+            <button className="bg-sky-500 rounded shadow w-[90%] text-white">
+              +Add Section
+            </button>
+          </div>
+        </fieldset>
+        <fieldset className="flex flex-col gap-2 ">
+          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 py-2">
+            Work Experience
+          </h1>
+
+          <WorkExp
+            handleWorkExperience={handleWorkExperience}
+            workExperience={workExperience}
+          />
+
+          <div className=" flex justify-evenly gap-2 py-2 ">
+            <button
+              onClick={handleWorkArr}
+              className="bg-sky-500 rounded shadow w-[90%] text-white"
+            >
+              +Add Section
+            </button>
+            <button className="bg-slate-400 rounded shadow w-[90%] text-white">
+              +Add Bullet Point
+            </button>
+          </div>
         </fieldset>
       </form>
     </div>
