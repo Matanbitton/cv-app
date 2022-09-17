@@ -1,6 +1,32 @@
-import React from "react";
-
+import React, { useState } from "react";
+import uniqid from "uniqid";
 export default function WorkExp({ handleWorkExperience, workExperience }) {
+  const [bulletPointInputArr, setBulletPointArr] = useState([]);
+
+  function addBulletPointInput() {
+    let bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
+    console.log(bulletPointName);
+
+    return (
+      <input
+        className=" pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
+        type="text"
+        id="bulletPoints"
+        placeholder="EXAMPLE: Increased company's revenue by..."
+        name={bulletPointName}
+        onChange={handleWorkExperience}
+        value={workExperience.bulletPointName}
+        key={uniqid()}
+      ></input>
+    );
+  }
+  function handleBulletPointsInput(e) {
+    e.preventDefault();
+    if (bulletPointInputArr.length <= 3) {
+      setBulletPointArr((prevArr) => [...prevArr, addBulletPointInput()]);
+    }
+  }
+
   return (
     <div className="flex flex-col gap-2 ">
       <div className="flex justify-evenly">
@@ -55,17 +81,15 @@ export default function WorkExp({ handleWorkExperience, workExperience }) {
       </div>
       <div className="flex justify-center w-full">
         <div className="flex flex-col w-[89%]">
-          <label for="bulletPoints">Job Description</label>
-          <input
-            className=" pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
-            type="text"
-            id="bulletPoints"
-            placeholder="EXAMPLE: Increased company's revenue by..."
-            name="bulletPoints"
-            onChange={handleWorkExperience}
-            value={workExperience.bulletPoints}
-          ></input>
-          <button>Add Bullet Point</button>
+          <label>Bullet Points: (4 Max)</label>
+
+          {bulletPointInputArr}
+          <button
+            onClick={handleBulletPointsInput}
+            className="bg-slate-400 text-white rounded"
+          >
+            Add Bullet Point
+          </button>
         </div>
       </div>
     </div>
