@@ -23,7 +23,10 @@ export default function Form() {
     position: "",
     startDate: "",
     endDate: "",
-    bulletPoints: [],
+    bulletPoint1: "",
+    bulletPoint2: "",
+    bulletPoint3: "",
+    bulletPoint4: "",
   });
 
   const [workArr, setWorkArr] = useState([]);
@@ -44,10 +47,12 @@ export default function Form() {
     });
     console.log(workExperience);
   }
-  function handleWorkArr(e) {
-    e.preventDefault();
+  function handleWorkArr(event) {
+    event.preventDefault();
     setWorkArr((prevArr) => [...prevArr, { ...workExperience, id: uniqid() }]);
   }
+
+  function handleWorkBulletPoints(bulletPointValue) {}
 
   return (
     <div className="w-full h-full">
@@ -104,9 +109,6 @@ export default function Form() {
               className="bg-sky-500 rounded shadow w-[90%] text-white"
             >
               +Add Section
-            </button>
-            <button className="bg-slate-400 rounded shadow w-[90%] text-white">
-              +Add Bullet Point
             </button>
           </div>
         </fieldset>
