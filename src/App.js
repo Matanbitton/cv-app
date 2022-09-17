@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./index.css";
 import Section from "./Section";
 import uniqid from "uniqid";
+import Form from "./Form";
 
 function App() {
   const initialSection = [
@@ -141,7 +142,6 @@ function App() {
       className="relative h-screen
        flex flex-col justify-start gap-4 items-center w-full bg-gray-900 text-white text-xxl overflow-scroll "
     >
-      {" "}
       <div className="header flex gap-5 box-border bg-sky-500  p-3 pb-24 justify-between items-center font-bold w-full">
         <p className="text-4xl text-center pl-4">Easy CV</p>
         <p className="text-xl text-center  pr-4">
@@ -180,13 +180,13 @@ function App() {
           +Work Experience
         </button>
       </div>
-      <div className="flex gap-2  justify-center  ">
-        <div className="absolute top-20  flex gap-10">
-          <div className=" shadow-lg p-4 rounded-md  justify-center overflow-hidden max-h-[1080px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800"></div>
+      <div className="absolute top-20  flex gap-5  justify-center ">
+        <div className=" left-[20%] top-[8%] shadow-lg p-4 rounded-md  justify-center overflow-hidden max-h-[1080px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800">
+          <Form />
+        </div>
 
-          <div className=" shadow-lg  p-4 rounded-md  justify-center overflow-hidden max-h-[1080px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800">
-            {section}
-          </div>
+        <div className="right-[10%] top-[8%] shadow-lg  p-4 rounded-md  justify-center overflow-hidden h-[860px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800">
+          {section}
         </div>
       </div>
     </div>
