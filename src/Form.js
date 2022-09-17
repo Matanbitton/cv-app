@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
 import uniqid from "uniqid";
-
 import WorkExp from "./WorkExp";
+import Education from "./Education";
 
 export default function Form() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -18,7 +18,6 @@ export default function Form() {
   const [showSummay, setShowSummary] = useState(false);
 
   const [workExperience, SetWorkExperience] = useState({
-    id: uniqid(),
     company: "",
     position: "",
     startDate: "",
@@ -30,6 +29,20 @@ export default function Form() {
   });
 
   const [workArr, setWorkArr] = useState([]);
+
+  const [education, setEducation] = useState({
+    institution: "",
+    degree: "",
+    startDate: "",
+    endDate: "",
+    bulletPoint1: "",
+    bulletPoint2: "",
+    bulletPoint3: "",
+    bulletPoint4: "",
+  });
+
+  const [educationArr, setEducationArr] = useState([]);
+
   console.log(workArr);
 
   function handlePersonalInfoChange(event) {
@@ -45,11 +58,19 @@ export default function Form() {
     SetWorkExperience((prevWork) => {
       return { ...prevWork, [event.target.name]: event.target.value };
     });
-    console.log(workExperience);
   }
   function handleWorkArr(event) {
     event.preventDefault();
     setWorkArr((prevArr) => [...prevArr, { ...workExperience, id: uniqid() }]);
+  }
+  function handleEducation(event) {
+    setEducation((prevEducation) => {
+      return { ...prevEducation, [event.target.name]: event.target.value };
+    });
+  }
+  function handleEducationArr(event) {
+    event.preventDefault();
+    setEducationArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
   }
 
   function handleWorkBulletPoints(bulletPointValue) {}
@@ -106,6 +127,22 @@ export default function Form() {
           <div className=" flex justify-evenly gap-2 py-2 ">
             <button
               onClick={handleWorkArr}
+              className="bg-sky-500 rounded shadow w-[90%] text-white"
+            >
+              +Add Section
+            </button>
+          </div>
+        </fieldset>
+        <fieldset className="flex flex-col gap-2 ">
+          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 py-2">
+            Education
+          </h1>
+
+          <Education handleEducation={handleEducation} education={education} />
+
+          <div className=" flex justify-evenly gap-2 py-2 ">
+            <button
+              onClick={handleEducationArr}
               className="bg-sky-500 rounded shadow w-[90%] text-white"
             >
               +Add Section
