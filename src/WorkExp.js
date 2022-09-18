@@ -29,7 +29,7 @@ export default function WorkExp({ handleWorkExperience, workExperience }) {
 
   return (
     <div className="flex flex-col gap-2 ">
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="company">Company:</label>
           <input
@@ -55,7 +55,7 @@ export default function WorkExp({ handleWorkExperience, workExperience }) {
           ></input>
         </div>
       </div>
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="from-date">From Date:</label>
           <input
@@ -80,10 +80,9 @@ export default function WorkExp({ handleWorkExperience, workExperience }) {
         </div>
       </div>
       <div className="flex justify-center w-full">
-        <div className="flex flex-col w-[89%]">
+        <div className="flex flex-col w-[89%] gap-2">
           <label>Bullet Points: (4 Max)</label>
-
-          {bulletPointInputArr}
+          <div className="flex flex-col gap-2">{bulletPointInputArr}</div>
           <button
             onClick={handleBulletPointsInput}
             className="bg-slate-400 text-white rounded"

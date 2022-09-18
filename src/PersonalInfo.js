@@ -6,7 +6,7 @@ export default function PersonalInfo({
 }) {
   return (
     <div className="flex-col flex gap-2">
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="firstName">First Name:</label>
           <input
@@ -32,7 +32,7 @@ export default function PersonalInfo({
           ></input>
         </div>
       </div>
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="phoneNumber">Phone Nubmer:</label>
           <input
@@ -60,7 +60,7 @@ export default function PersonalInfo({
           ></input>
         </div>
       </div>
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="linkedinLink">Linkedin Link:</label>
           <input

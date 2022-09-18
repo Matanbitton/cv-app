@@ -29,7 +29,7 @@ export default function Education({ handleEducation, education }) {
 
   return (
     <div className="flex flex-col gap-2 ">
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="company">Company:</label>
           <input
@@ -55,7 +55,7 @@ export default function Education({ handleEducation, education }) {
           ></input>
         </div>
       </div>
-      <div className="flex justify-evenly">
+      <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="from-date">From Date:</label>
           <input
