@@ -8,7 +8,7 @@ module.exports = {
 
         md: { min: "720px", max: "1074px" },
 
-        lg: { min: "1074px", max: "100vw" },
+        lg: { min: "1175px", max: "100vw" },
       },
     },
 
