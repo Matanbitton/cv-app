@@ -142,9 +142,11 @@ function App() {
       className="relative h-screen
        flex flex-col justify-start gap-4 items-center w-full bg-gray-900 text-white text-xxl overflow-scroll "
     >
-      <div className="header flex gap-5 box-border bg-sky-500  p-3 pb-24 justify-between items-center font-bold w-full">
-        <p className="text-4xl text-center pl-4">Easy CV</p>
-        <p className="text-xl text-center  pr-4">
+      <div className="header flex gap-5 sm:gap-0 sm:flex-col box-border bg-sky-500  p-3 pb-24 justify-between items-center font-bold w-full sm:w-[380px]">
+        <p className="text-4xl text-center pl-4 sm:pl-0 sm:text-2xl ">
+          Easy CV
+        </p>
+        <p className="text-xl text-center  pr-4 sm:pr-0 sm:text-lg">
           The easier way to build a resume
         </p>
       </div>
@@ -180,12 +182,12 @@ function App() {
           +Work Experience
         </button>
       </div>
-      <div className=" absolute top-20  flex gap-5  justify-center sm:flex-col md:flex-col  lg:flex-col xl:flex-row 2xl:flex-row min-w-[650px]">
-        <div className=" left-[20%] top-[8%] shadow-lg p-4 rounded-md  justify-center  max-h-[1080px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800">
+      <div className=" absolute top-20 sm:left-2 flex gap-5  justify-center sm:flex-col md:flex-col  lg:flex-row min-w-[650px]">
+        <div className=" left-[20%] top-[8%] shadow-lg p-4 rounded-md  justify-center  max-h-full max-w-lg min-w-[650px] min-h-[850px] sm:min-w-[340px] sm:max-w-[360px] bg-gray-100 text-gray-800">
           <Form />
         </div>
 
-        <div className="right-[10%] top-[8%] shadow-lg  p-4 rounded-md  justify-center overflow-hidden h-[860px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800">
+        <div className="right-[10%] top-[8%] shadow-lg  p-4 rounded-md  justify-center overflow-hidden h-[860px] max-w-lg min-w-[650px] min-h-[850px] sm:min-w-[340px] sm:max-w-[400px]  bg-gray-100 text-gray-800">
           {section}
         </div>
       </div>
