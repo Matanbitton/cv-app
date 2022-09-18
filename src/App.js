@@ -180,8 +180,8 @@ function App() {
           +Work Experience
         </button>
       </div>
-      <div className="absolute top-20  flex gap-5  justify-center ">
-        <div className=" left-[20%] top-[8%] shadow-lg p-4 rounded-md  justify-center overflow-hidden max-h-[1080px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800">
+      <div className=" absolute top-20  flex gap-5  justify-center sm:flex-col md:flex-col  lg:flex-col xl:flex-row 2xl:flex-row min-w-[650px]">
+        <div className=" left-[20%] top-[8%] shadow-lg p-4 rounded-md  justify-center  max-h-[1080px] max-w-lg min-w-[650px] min-h-[850px]  bg-gray-100 text-gray-800">
           <Form />
         </div>
 
