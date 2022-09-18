@@ -182,13 +182,16 @@ function App() {
           +Work Experience
         </button>
       </div>
-      <div className=" absolute top-20 sm:left-2 flex gap-5  justify-center sm:flex-col md:flex-col  lg:flex-row min-w-[650px]">
-        <div className=" left-[20%] top-[8%] shadow-lg p-4 rounded-md  justify-center  max-h-full max-w-lg min-w-[650px] min-h-[850px] sm:min-w-[340px] sm:max-w-[360px] bg-gray-100 text-gray-800">
-          <Form />
-        </div>
 
-        <div className="right-[10%] top-[8%] shadow-lg  p-4 rounded-md  justify-center overflow-hidden h-[860px] max-w-lg min-w-[650px] min-h-[850px] sm:min-w-[340px] sm:max-w-[400px]  bg-gray-100 text-gray-800">
-          {section}
+      <div className="w-screen flex  justify-center items-center">
+        <div className="w-[80%]  absolute top-20 flex gap-5 justify-evenly sm:items-center sm:flex-col md:flex-col  lg:flex-row ">
+          <div className="  shadow-lg p-4 rounded-md    max-h-full  lg:min-w-[650px] md:min-w-[550px] min-h-[850px] sm:min-w-[340px] sm:max-w-[50%]  bg-gray-100 text-gray-800">
+            <Form />
+          </div>
+
+          <div className=" shadow-lg  p-4 rounded-md   max-h-full  lg:min-w-[650px] md:min-w-[550px] min-h-[850px] sm:min-w-[340px] sm:max-w-[50%]  bg-gray-100 text-gray-800">
+            {section}
+          </div>
         </div>
       </div>
     </div>
