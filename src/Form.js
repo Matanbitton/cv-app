@@ -4,7 +4,8 @@ import PersonalInfo from "./PersonalInfo";
 import uniqid from "uniqid";
 import WorkExp from "./WorkExp";
 import Education from "./Education";
-
+import Project from "./Project";
+import Skills from "./Skills";
 export default function Form() {
   const [personalInfo, setPersonalInfo] = useState({
     firstName: "",
@@ -43,7 +44,20 @@ export default function Form() {
 
   const [educationArr, setEducationArr] = useState([]);
 
-  console.log(workArr);
+  const [project, setProject] = useState({
+    projectName: "",
+    tech: "",
+    bulletPoint1: "",
+    bulletPoint2: "",
+    bulletPoint3: "",
+    bulletPoint4: "",
+  });
+
+  const [projectsArr, setProjectsArr] = useState([]);
+
+  const [skill, setSkill] = useState("");
+
+  const [skillsArr, setSkillsArr] = useState([]);
 
   function handlePersonalInfoChange(event) {
     setPersonalInfo((prevInfo) => {
@@ -72,14 +86,29 @@ export default function Form() {
     event.preventDefault();
     setEducationArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
   }
+  function handleProject(event) {
+    setProject((prevProject) => {
+      return { ...prevProject, [event.target.name]: event.target.value };
+    });
+  }
+  function handleProjectsArr(event) {
+    event.preventDefault();
+    setProjectsArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
+  }
+  function handleSkill(event) {
+    setSkill(() => event.target.value);
+  }
 
-  function handleWorkBulletPoints(bulletPointValue) {}
+  function handleSkillsArr(event) {
+    event.preventDefault();
+    setProjectsArr((prevArr) => [...prevArr, { ...skill, id: uniqid() }]);
+  }
 
   return (
     <div className="w-full h-full">
       <form className="">
         <fieldset className="flex flex-col gap-2 ">
-          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 py-2">
+          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
             Personal Information
           </h1>
 
@@ -115,7 +144,7 @@ export default function Form() {
           </div>
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
-          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 py-2">
+          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
             Work Experience
           </h1>
 
@@ -134,7 +163,7 @@ export default function Form() {
           </div>
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
-          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 py-2">
+          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
             Education
           </h1>
 
@@ -143,6 +172,38 @@ export default function Form() {
           <div className=" flex justify-evenly gap-2 py-2 ">
             <button
               onClick={handleEducationArr}
+              className="bg-sky-500 rounded shadow w-[90%] text-white"
+            >
+              +Add Section
+            </button>
+          </div>
+        </fieldset>
+        <fieldset className="flex flex-col gap-2 ">
+          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
+            Project
+          </h1>
+
+          <Project handleProject={handleProject} project={project} />
+
+          <div className=" flex justify-evenly gap-2 py-2 ">
+            <button
+              onClick={handleProjectsArr}
+              className="bg-sky-500 rounded shadow w-[90%] text-white"
+            >
+              +Add Section
+            </button>
+          </div>
+        </fieldset>
+        <fieldset className="flex flex-col gap-2 ">
+          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
+            Skills
+          </h1>
+
+          <Skills handleSkill={handleSkill} skill={skill} />
+
+          <div className=" flex justify-evenly gap-2 py-2 ">
+            <button
+              onClick={handleSkillsArr}
               className="bg-sky-500 rounded shadow w-[90%] text-white"
             >
               +Add Section
