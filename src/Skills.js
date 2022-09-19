@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import uniqid from "uniqid";
-export default function Skills({ handleSkill, skill }) {
+export default function Skills({ handleSkill, skills }) {
   const [skillsInputArr, setSkillsInputArr] = useState([]);
 
   function addSkillInput() {
-    let bulletPointName = `bulletPoint${skillsInputArr.length + 1}`;
+    let skillNumber = `skill${skillsInputArr.length + 1}`;
 
     return (
       <input
@@ -12,13 +12,15 @@ export default function Skills({ handleSkill, skill }) {
         type="text"
         placeholder="EXAMPLE: React"
         onChange={handleSkill}
+        name={skillNumber}
+        value={skills.skillNumber}
         key={uniqid()}
       ></input>
     );
   }
   function handleSkillsInput(e) {
     e.preventDefault();
-    if (skillsInputArr.length <= 3) {
+    if (skillsInputArr.length <= 9) {
       setSkillsInputArr((prevArr) => [...prevArr, addSkillInput()]);
     }
   }
@@ -28,14 +30,12 @@ export default function Skills({ handleSkill, skill }) {
       <div className="flex justify-center sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col w-[60%]">
           <label for="company">Skill:</label>
-          <input
-            type="text"
-            className="rounded w-full  pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
-            placeholder="Java/React/Leadership/Communication..."
-            onChange={handleSkill}
-          ></input>
+
           {skillsInputArr}
-          <button onClick={handleSkillsInput} className="bg-slate-400">
+          <button
+            onClick={handleSkillsInput}
+            className="bg-slate-400 rounded text-white"
+          >
             Add Skill
           </button>
         </div>
