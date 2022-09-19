@@ -6,6 +6,8 @@ import WorkExp from "./WorkExp";
 import Education from "./Education";
 import Project from "./Project";
 import Skills from "./Skills";
+import Custom from "./Custom";
+
 export default function Form() {
   const [personalInfo, setPersonalInfo] = useState({
     firstName: "",
@@ -68,7 +70,16 @@ export default function Form() {
     skill10: "",
   });
 
-  const [skillsArr, setSkillsArr] = useState([]);
+  const [custom, setCustom] = useState({
+    sectionTitle: "",
+    header: "",
+    startDate: "",
+    endDate: "",
+    bulletPoint1: "",
+    bulletPoint2: "",
+    bulletPoint3: "",
+    bulletPoint4: "",
+  });
 
   function handlePersonalInfoChange(event) {
     setPersonalInfo((prevInfo) => {
@@ -111,6 +122,11 @@ export default function Form() {
       return { ...prevSkill, [event.target.name]: event.target.value };
     });
     console.log(skills);
+  }
+  function handleCustom(event) {
+    setCustom((prevCustom) => {
+      return { ...prevCustom, [event.target.name]: event.target.value };
+    });
   }
 
   return (
@@ -209,6 +225,19 @@ export default function Form() {
           </h1>
 
           <Skills handleSkill={handleSkill} skills={skills} />
+
+          <div className=" flex justify-evenly gap-2 py-2 ">
+            <button className="bg-sky-500 rounded shadow w-[90%] text-white">
+              +Add Section
+            </button>
+          </div>
+        </fieldset>
+        <fieldset className="flex flex-col gap-2 ">
+          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
+            Custom
+          </h1>
+
+          <Custom handleCustom={handleCustom} custom={custom} />
 
           <div className=" flex justify-evenly gap-2 py-2 ">
             <button className="bg-sky-500 rounded shadow w-[90%] text-white">
