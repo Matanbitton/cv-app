@@ -55,7 +55,18 @@ export default function Form() {
 
   const [projectsArr, setProjectsArr] = useState([]);
 
-  const [skill, setSkill] = useState("");
+  const [skills, setSkill] = useState({
+    skill1: "",
+    skill2: "",
+    skill3: "",
+    skill4: "",
+    skill5: "",
+    skill6: "",
+    skill7: "",
+    skill8: "",
+    skill9: "",
+    skill10: "",
+  });
 
   const [skillsArr, setSkillsArr] = useState([]);
 
@@ -96,12 +107,10 @@ export default function Form() {
     setProjectsArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
   }
   function handleSkill(event) {
-    setSkill(() => event.target.value);
-  }
-
-  function handleSkillsArr(event) {
-    event.preventDefault();
-    setProjectsArr((prevArr) => [...prevArr, { ...skill, id: uniqid() }]);
+    setSkill((prevSkill) => {
+      return { ...prevSkill, [event.target.name]: event.target.value };
+    });
+    console.log(skills);
   }
 
   return (
@@ -199,13 +208,10 @@ export default function Form() {
             Skills
           </h1>
 
-          <Skills handleSkill={handleSkill} skill={skill} />
+          <Skills handleSkill={handleSkill} skills={skills} />
 
           <div className=" flex justify-evenly gap-2 py-2 ">
-            <button
-              onClick={handleSkillsArr}
-              className="bg-sky-500 rounded shadow w-[90%] text-white"
-            >
+            <button className="bg-sky-500 rounded shadow w-[90%] text-white">
               +Add Section
             </button>
           </div>
