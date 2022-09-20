@@ -31,27 +31,26 @@ export default function Education({ handleEducation, education }) {
     <div className="flex flex-col gap-2 ">
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
-          <label for="company">Company:</label>
+          <label for="company">Institution:</label>
           <input
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
-            id="company"
-            placeholder="Company"
-            name="company"
+            placeholder="Institution"
+            name="institution"
             onChange={handleEducation}
-            value={education.company}
+            value={education.institution}
           ></input>
         </div>
         <div className="flex flex-col">
-          <label for="position">Position:</label>
+          <label for="position">Degree/Course:</label>
           <input
             type="text"
-            className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
+            className="rounded pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             id="position"
-            placeholder="Position"
-            name="position"
+            placeholder="Degree/Course/Seminar"
+            name="degree"
             onChange={handleEducation}
-            value={education.position}
+            value={education.degree}
           ></input>
         </div>
       </div>
@@ -59,7 +58,7 @@ export default function Education({ handleEducation, education }) {
         <div className="flex flex-col">
           <label for="from-date">From Date:</label>
           <input
-            className="w-[258px] rounded shadow border text-slate-400  border-slate-400 focus:border-sky-500 focus:outline-none"
+            className="w-full md:w-[258px] lg:w-[258px] rounded shadow border text-slate-400  border-slate-400 focus:border-sky-500 focus:outline-none"
             type="date"
             id="from-date"
             name="startDate"
@@ -70,7 +69,7 @@ export default function Education({ handleEducation, education }) {
         <div className="flex flex-col">
           <label for="to-date">To Date:</label>
           <input
-            className=" w-[258px] rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
+            className=" w-full md:w-[258px] lg:w-[258px] rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
             type="date"
             id="to-date"
             name="endDate"
