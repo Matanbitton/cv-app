@@ -92,12 +92,22 @@ export default function Custom({ handleCustom, custom }) {
       <label>Bullet Points: (4 Max)</label>
       <div className="flex flex-col gap-2">
         {bulletPointInputArr}
-        <button
-          onClick={handleShowDate}
-          className="bg-slate-400 text-white rounded"
-        >
-          Add Date
-        </button>
+        {!showDate && (
+          <button
+            onClick={handleShowDate}
+            className="bg-slate-400 text-white rounded"
+          >
+            Add Date
+          </button>
+        )}
+        {showDate && (
+          <button
+            onClick={handleShowDate}
+            className="bg-slate-400 text-white rounded"
+          >
+            Remove Date
+          </button>
+        )}
         <button
           onClick={handleBulletPointsInput}
           className="bg-slate-400 text-white rounded"
