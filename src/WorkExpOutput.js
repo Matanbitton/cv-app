@@ -1,14 +1,4 @@
-import {
-  faEnvelope,
-  faGlobe,
-  faLink,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 export default function WorkExpOutput({ workExpArr }) {
-  function workExpComponent() {}
-
   return (
     <div className="flex flex-col   border-sky-500 p-4 pl-3 ">
       {workExpArr.length >= 1 ? (

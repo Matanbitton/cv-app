@@ -1,5 +1,8 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import uniqid from "uniqid";
+import { faPen } from "@fortawesome/free-solid-svg-icons";
+import Tools from "./Tools";
 
 export default function WorkDetails({
   company,
@@ -7,10 +10,12 @@ export default function WorkDetails({
   startDate,
   endDate,
   description,
-  handleClick,
-  handleRemove,
-  id,
+  handleWorkDetailsArr,
 }) {
+  const [isToolsShown, setIsToolsShown] = useState(false);
+  function toggleToolsShown() {
+    setIsToolsShown((current) => !current);
+  }
   const [jobTitleArr, setJobTitleArr] = useState([
     {
       company,
@@ -20,6 +25,7 @@ export default function WorkDetails({
     },
   ]);
   const [jobDescriptionArr, setJobDescriptionArr] = useState([description]);
+
   function handleJobTitle() {
     setJobTitleArr((prevJobTitle) => {
       return [...prevJobTitle, prevJobTitle[prevJobTitle.length - 1]];
@@ -35,40 +41,57 @@ export default function WorkDetails({
   }
 
   return (
-    <div id={id} onDoubleClick={handleRemove}>
+    <div className=" ">
       {jobTitleArr.map((jobTitle) => (
-        <div key={uniqid()} className="flex  align-start gap-2 l max-w-full">
-          <p className="hover:bg-slate-300 text-md  font-medium p-0 m-0">
+        <div
+          key={uniqid()}
+          className="flex hover:outline outline-sky-500 align-start gap-2  "
+        >
+          <p
+            onClick={() => toggleToolsShown()}
+            className=" text-md   font-medium p-0 m-0"
+          >
             {jobTitle.company} -
           </p>
-          <p className="hover:bg-slate-300 max-h-fit italic">
+          <p onClick={() => toggleToolsShown()} className=" max-h-fit italic">
             {jobTitle.position}
           </p>
-          <p className="hover:bg-slate-300 italic p-0 m-0">
+          <p onClick={() => toggleToolsShown()} className=" italic p-0 m-0">
             {jobTitle.startDate} -
           </p>
-          <p className="hover:bg-slate-300 italic p-0 m-0">
+          <p onClick={() => toggleToolsShown()} className=" italic p-0 m-0">
             {jobTitle.endDate}
           </p>
+          <button
+            onClick={handleWorkDetailsArr}
+            className=" rounded bg-sky-500 px-2 text-white hidden group-hover:block"
+          >
+            +
+          </button>
         </div>
       ))}
-      <div className="flex flex-col max-h-full max-w-full ">
+
+      <div className=" relative flex flex-col max-h-full ">
         {jobDescriptionArr.map((description) => (
-          <div key={uniqid()}>
+          <div className=" flex gap-2 m-0.5 " key={uniqid()}>
+            {isToolsShown && <Tools toggleToolsShown={toggleToolsShown} />}
             <p
-              onClick={handleClick}
-              className="hover:bg-slate-300 max-h-fit  p-0 m-0"
+              onClick={() => toggleToolsShown()}
+              className=" hover:outline outline-sky-500 max-w-fit max-h-fit  p-0 m-0"
             >
               {description}
             </p>
+            <button className="hidden group-hover:block rounded bg-emerald-500 px-1 text-md  text-white max-w-fit">
+              <FontAwesomeIcon icon={faPen} />
+            </button>
+            <button
+              onClick={handleDescription}
+              className="hidden group-hover:block rounded bg-sky-500 px-2 text-md  text-white max-w-fit"
+            >
+              +
+            </button>
           </div>
         ))}
-        <button
-          onClick={handleDescription}
-          className="rounded bg-sky-500 px-2 mb-2 text-white max-w-fit"
-        >
-          + Description
-        </button>
       </div>
     </div>
   );

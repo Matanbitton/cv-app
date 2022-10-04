@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./index.css";
 import Input from "./Input";
 import uniqid from "uniqid";
-import Education from "./Education";
 import Work from "./Work";
-import Projects from "./Projects";
-import Skills from "./Skills";
 import Info from "./Info";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -165,28 +162,19 @@ export default function Section({
       {toggleInput()}
 
       {type === "Education" && (
-        <div id={id} onDoubleClick={handleRemove}>
-          <Education
-            key={id}
-            id={id}
-            description={description}
-            startDate={startDate}
-            endDate={endDate}
-            position={position}
-            handleRemove={handleRemove}
-            text={title}
-          />
+        <div className="group flex gap-8 justify-between" id={id}>
+          <button
+            onClick={() => handleRemove(id)}
+            className="round-animation bg-red-500 text-white border h-full m-0 content-end px-1 py-0 hidden group-hover:block"
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
         </div>
       )}
       {type === "Work" && (
-        <div
-          className="group flex gap-8 justify-between "
-          id={id}
-          onDoubleClick={handleRemove}
-        >
+        <div className="group flex gap-8 justify-between " id={id}>
           <Work
             key={id}
-            id={id}
             handleDescription={handleDescription}
             handleClick={handleClick}
             handleRemove={handleRemove}
@@ -198,33 +186,33 @@ export default function Section({
             company={company}
           />
 
-          <button className="round-animation bg-red-500 text-white border h-full m-0 content-end px-2 py-1 hidden group-hover:block">
+          <button
+            onClick={() => handleRemove(id)}
+            className="round-animation bg-red-500 text-white border h-full m-0 content-end px-1 py-0 hidden group-hover:block"
+          >
             <FontAwesomeIcon icon={faTrash} />
           </button>
         </div>
       )}
 
       {type === "Projects" && (
-        <div id={id} onDoubleClick={handleRemove}>
-          <Projects
-            key={id}
-            id={id}
-            text={title}
-            handleRemove={handleRemove}
-            description={description}
-          />
+        <div className="group flex gap-8 justify-between " id={id}>
+          <button
+            onClick={() => handleRemove(id)}
+            className="round-animation bg-red-500 text-white border h-full m-0 content-end px-1 py-0 hidden group-hover:block"
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
         </div>
       )}
       {type === "Skills" && (
-        <div id={id} onDoubleClick={handleRemove}>
-          <Skills
-            key={id}
-            id={id}
-            handleAddButton={handleAddButton}
-            handleRemove={handleRemove}
-            text={title}
-            skillsCV={skillsCV}
-          />
+        <div className="group flex gap-8 justify-between " id={id}>
+          <button
+            onClick={() => handleRemove(id)}
+            className="round-animation bg-red-500 text-white border h-full m-0 content-end px-1 py-0 hidden group-hover:block"
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
         </div>
       )}
     </div>

@@ -1,11 +1,3 @@
-import {
-  faEnvelope,
-  faGlobe,
-  faLink,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 export default function personalInfoOutput({ personalInfo }) {
   return (
     <div className="flex flex-col justify-center items-center  border-sky-500   ">
@@ -22,9 +14,7 @@ export default function personalInfoOutput({ personalInfo }) {
         <div className="flex justify-center items-center gap-1 ">
           {personalInfo.phoneNumber && (
             <>
-              <div className="text-sm text-sky-600">
-                <FontAwesomeIcon icon={faPhone} />
-              </div>
+              <div className="text-sm text-sky-600"></div>
               <p className="break-all text-left">{personalInfo.phoneNumber}</p>
             </>
           )}
@@ -33,9 +23,7 @@ export default function personalInfoOutput({ personalInfo }) {
           <div className="flex justify-center items-center gap-1 ">
             {personalInfo.email && (
               <>
-                <div className="text-sm text-sky-600">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </div>
+                <div className="text-sm text-sky-600"></div>
                 <p className="break-all text-left">{personalInfo.email}</p>
               </>
             )}
@@ -44,7 +32,7 @@ export default function personalInfoOutput({ personalInfo }) {
             {personalInfo.linkedinLink && (
               <>
                 <div className="text-sm text-sky-600">
-                  <FontAwesomeIcon icon={faLink} />
+                  <i class="fab fa-linkedin"></i>
                 </div>
                 <p className="break-all text-left">
                   {" "}
@@ -56,9 +44,7 @@ export default function personalInfoOutput({ personalInfo }) {
           <div className="flex justify-center items-center gap-1 ">
             {personalInfo.websiteLink && (
               <>
-                <div className="text-sm text-sky-600">
-                  <FontAwesomeIcon icon={faGlobe} />
-                </div>
+                <div className="text-sm text-sky-600"></div>
                 <p className="break-all text-left">
                   {personalInfo.websiteLink}
                 </p>
@@ -68,11 +54,11 @@ export default function personalInfoOutput({ personalInfo }) {
         </div>
       </div>
       {personalInfo.summarySection && (
-        <div className=" w-full  bg-gray-100 p-2  pl-3  ">
-          <h1 className=" text-sky-500 text-xl font-bold border-b-2 border-sky-500">
+        <div className=" w-full  bg-gray-100 p-2  pl-3   ">
+          <h1 className=" font-medium  text-sky-500 text-xl border-b-2 border-sky-500">
             Summary
           </h1>
-          <p className="text-black pl-2 py-1 break-all text-left">
+          <p className="text-slate-800 pl-2 py-1 break-all  text-left">
             {personalInfo.summarySection}
           </p>
         </div>

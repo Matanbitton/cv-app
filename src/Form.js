@@ -1,6 +1,5 @@
 import React from "react";
-import { useState } from "react";
-import PersonalInfo from "./PersonalInfo";
+import PersonalInfoInput from "./PersonalInfoInput";
 import uniqid from "uniqid";
 import WorkExp from "./WorkExp";
 import Education from "./Education";
@@ -8,126 +7,26 @@ import Project from "./Project";
 import Skills from "./Skills";
 import Custom from "./Custom";
 
-export default function Form() {
-  const [personalInfo, setPersonalInfo] = useState({
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
-    email: "",
-    linkedinLink: "",
-    websiteLink: "",
-    summarySection: "",
-  });
-  const [showSummay, setShowSummary] = useState(false);
-
-  const [workExperience, SetWorkExperience] = useState({
-    company: "",
-    position: "",
-    startDate: "",
-    endDate: "",
-    bulletPoint1: "",
-    bulletPoint2: "",
-    bulletPoint3: "",
-    bulletPoint4: "",
-  });
-
-  const [workArr, setWorkArr] = useState([]);
-
-  const [education, setEducation] = useState({
-    institution: "",
-    degree: "",
-    startDate: "",
-    endDate: "",
-    bulletPoint1: "",
-    bulletPoint2: "",
-    bulletPoint3: "",
-    bulletPoint4: "",
-  });
-
-  const [educationArr, setEducationArr] = useState([]);
-
-  const [project, setProject] = useState({
-    projectName: "",
-    tech: "",
-    bulletPoint1: "",
-    bulletPoint2: "",
-    bulletPoint3: "",
-    bulletPoint4: "",
-  });
-
-  const [projectsArr, setProjectsArr] = useState([]);
-
-  const [skills, setSkill] = useState({
-    skill1: "",
-    skill2: "",
-    skill3: "",
-    skill4: "",
-    skill5: "",
-    skill6: "",
-    skill7: "",
-    skill8: "",
-    skill9: "",
-    skill10: "",
-  });
-
-  const [custom, setCustom] = useState({
-    sectionTitle: "",
-    header: "",
-    startDate: "",
-    endDate: "",
-    bulletPoint1: "",
-    bulletPoint2: "",
-    bulletPoint3: "",
-    bulletPoint4: "",
-  });
-
-  function handlePersonalInfoChange(event) {
-    setPersonalInfo((prevInfo) => {
-      return { ...prevInfo, [event.target.name]: event.target.value };
-    });
-  }
-  function handleSummary() {
-    setShowSummary((prevShow) => !prevShow);
-  }
-
-  function handleWorkExperience(event) {
-    SetWorkExperience((prevWork) => {
-      return { ...prevWork, [event.target.name]: event.target.value };
-    });
-  }
-  function handleWorkArr(event) {
-    event.preventDefault();
-    setWorkArr((prevArr) => [...prevArr, { ...workExperience, id: uniqid() }]);
-  }
-  function handleEducation(event) {
-    setEducation((prevEducation) => {
-      return { ...prevEducation, [event.target.name]: event.target.value };
-    });
-  }
-  function handleEducationArr(event) {
-    event.preventDefault();
-    setEducationArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
-  }
-  function handleProject(event) {
-    setProject((prevProject) => {
-      return { ...prevProject, [event.target.name]: event.target.value };
-    });
-  }
-  function handleProjectsArr(event) {
-    event.preventDefault();
-    setProjectsArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
-  }
-  function handleSkill(event) {
-    setSkill((prevSkill) => {
-      return { ...prevSkill, [event.target.name]: event.target.value };
-    });
-    console.log(skills);
-  }
-  function handleCustom(event) {
-    setCustom((prevCustom) => {
-      return { ...prevCustom, [event.target.name]: event.target.value };
-    });
-  }
+export default function Form({
+  personalInfo,
+  custom,
+  showSummay,
+  education,
+  project,
+  skills,
+  workExperience,
+  handleCustom,
+  handleEducation,
+  handleEducationArr,
+  handlePersonalInfoChange,
+  handleProject,
+  handleProjectsArr,
+  handleSkill,
+  handleSummary,
+  handleWorkExperience,
+  handleWorkArr,
+}) {
+  console.log(custom);
 
   return (
     <div className="w-full h-full">
@@ -137,7 +36,7 @@ export default function Form() {
             Personal Information
           </h1>
 
-          <PersonalInfo
+          <PersonalInfoInput
             handlePersonalInfoChange={handlePersonalInfoChange}
             personalInfo={personalInfo}
           />

@@ -15,3 +15,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.round-animation {
+  border-radius: 5px;
+}
+
+.round-animation:hover {
+  animation: round-it 1s ease-in-out 1;
+}
+
+@keyframes round-it {
+  0% {
+    border-radius: 10px;
+  }
+  100% {
+    border-radius: 200px;
+  }
+}
+
+.header {
+  clip-path: ellipse(70% 90% at 50% 0%);
+}
