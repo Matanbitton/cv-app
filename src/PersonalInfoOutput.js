@@ -1,3 +1,16 @@
+import {
+  fa3,
+  faEnvelope,
+  faExternalLink,
+  faGlobe,
+  faLink,
+  faLinkSlash,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+
 export default function personalInfoOutput({ personalInfo }) {
   return (
     <div className="flex flex-col justify-center items-center  border-sky-500   ">
@@ -14,7 +27,11 @@ export default function personalInfoOutput({ personalInfo }) {
         <div className="flex justify-center items-center gap-1 ">
           {personalInfo.phoneNumber && (
             <>
-              <div className="text-sm text-sky-600"></div>
+              <div className="text-sm text-sky-600">
+                {" "}
+                <FontAwesomeIcon icon={faPhone} />
+              </div>
+
               <p className="break-all text-left">{personalInfo.phoneNumber}</p>
             </>
           )}
@@ -23,7 +40,11 @@ export default function personalInfoOutput({ personalInfo }) {
           <div className="flex justify-center items-center gap-1 ">
             {personalInfo.email && (
               <>
-                <div className="text-sm text-sky-600"></div>
+                <div className="text-sm text-sky-600">
+                  {" "}
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </div>
+
                 <p className="break-all text-left">{personalInfo.email}</p>
               </>
             )}
@@ -32,10 +53,10 @@ export default function personalInfoOutput({ personalInfo }) {
             {personalInfo.linkedinLink && (
               <>
                 <div className="text-sm text-sky-600">
-                  <i class="fab fa-linkedin"></i>
+                  {" "}
+                  <FontAwesomeIcon icon={faLink} />
                 </div>
                 <p className="break-all text-left">
-                  {" "}
                   {personalInfo.linkedinLink}
                 </p>
               </>
@@ -44,7 +65,9 @@ export default function personalInfoOutput({ personalInfo }) {
           <div className="flex justify-center items-center gap-1 ">
             {personalInfo.websiteLink && (
               <>
-                <div className="text-sm text-sky-600"></div>
+                <div className="text-sm text-sky-600">
+                  <FontAwesomeIcon icon={faGlobe} />
+                </div>
                 <p className="break-all text-left">
                   {personalInfo.websiteLink}
                 </p>
