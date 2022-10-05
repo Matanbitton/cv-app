@@ -15,7 +15,7 @@ export default function Resume() {
   });
   const [showSummay, setShowSummary] = useState(false);
 
-  const [workExperience, SetWorkExperience] = useState({
+  const [workExperience, setWorkExperience] = useState({
     company: "",
     position: "",
     startDate: "",
@@ -86,16 +86,28 @@ export default function Resume() {
   }
 
   function handleWorkExperience(event) {
-    SetWorkExperience((prevWork) => {
+    setWorkExperience((prevWork) => {
       return { ...prevWork, [event.target.name]: event.target.value };
     });
-    console.log(workExperience);
   }
   function handleWorkArr(event) {
     event.preventDefault();
+    setWorkExperience((prevWork) => {
+      return {
+        ...prevWork,
+        company: "",
+        position: "",
+        startDate: "",
+        endDate: "",
+        bulletPoint1: "",
+        bulletPoint2: "",
+        bulletPoint3: "",
+        bulletPoint4: "",
+      };
+    });
     setWorkArr((prevArr) => [...prevArr, { ...workExperience, id: uniqid() }]);
-    console.log(workArr);
   }
+
   function handleEducation(event) {
     setEducation((prevEducation) => {
       return { ...prevEducation, [event.target.name]: event.target.value };
@@ -115,6 +127,7 @@ export default function Resume() {
     setProjectsArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
   }
   function handleSkill(event) {
+    event.preventDefault();
     setSkill((prevSkill) => {
       return { ...prevSkill, [event.target.name]: event.target.value };
     });
@@ -165,7 +178,14 @@ export default function Resume() {
             />
           </div>
           <div className="max-w-[750px]">
-            <FormOutPut personalInfo={personalInfo} workExpArr={workArr} />
+            <FormOutPut
+              personalInfo={personalInfo}
+              workExpArr={workArr}
+              educationArr={educationArr}
+              projectsArr={projectsArr}
+              skills={skills}
+              custom={custom}
+            />
           </div>
         </div>
       </div>
