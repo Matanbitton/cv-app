@@ -1,6 +1,5 @@
 import React from "react";
 import PersonalInfoInput from "./PersonalInfoInput";
-import uniqid from "uniqid";
 import WorkExp from "./WorkExp";
 import Education from "./Education";
 import Project from "./Project";
@@ -15,6 +14,9 @@ export default function Form({
   project,
   skills,
   workExperience,
+  workArr,
+  projectsArr,
+
   handleCustom,
   handleEducation,
   handleEducationArr,
@@ -26,8 +28,6 @@ export default function Form({
   handleWorkExperience,
   handleWorkArr,
 }) {
-  console.log(custom);
-
   return (
     <div className="w-full h-full">
       <form className="">
@@ -75,6 +75,7 @@ export default function Form({
           <WorkExp
             handleWorkExperience={handleWorkExperience}
             workExperience={workExperience}
+            workArr={workArr}
           />
 
           <div className=" flex justify-evenly gap-2 py-2 ">
@@ -126,7 +127,10 @@ export default function Form({
           <Skills handleSkill={handleSkill} skills={skills} />
 
           <div className=" flex justify-evenly gap-2 py-2 ">
-            <button className="bg-sky-500 rounded shadow w-[90%] text-white">
+            <button
+              onClick={handleSkill}
+              className="bg-sky-500 rounded shadow w-[90%] text-white"
+            >
               +Add Section
             </button>
           </div>

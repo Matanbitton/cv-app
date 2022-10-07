@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import uniqid from "uniqid";
-export default function WorkExp({ handleWorkExperience, workExperience }) {
+export default function WorkExp({
+  handleWorkExperience,
+  workExperience,
+  workArr,
+}) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
   function addBulletPointInput() {
     let bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
-    console.log(bulletPointName);
 
     return (
       <input
@@ -26,6 +29,10 @@ export default function WorkExp({ handleWorkExperience, workExperience }) {
       setBulletPointArr((prevArr) => [...prevArr, addBulletPointInput()]);
     }
   }
+  function clearBulletPoints() {
+    setBulletPointArr(() => []);
+  }
+  useEffect(() => clearBulletPoints(), [workArr]);
 
   return (
     <div className="flex flex-col gap-2 ">
