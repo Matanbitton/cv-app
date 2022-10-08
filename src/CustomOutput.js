@@ -4,9 +4,13 @@ import uniqid from "uniqid";
 export default function WorkExpOutput({ custom }) {
   return (
     <div className="flex flex-col   border-sky-500 p-4 pl-3 ">
-      <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
-        {custom.sectionTitle}
-      </h1>
+      {custom.sectionTitle ? (
+        <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
+          custom.sectionTitle{" "}
+        </h1>
+      ) : (
+        ""
+      )}
 
       <div className="w-full flex-col pl-3" key={uniqid()}>
         <div className="flex  justify-between">

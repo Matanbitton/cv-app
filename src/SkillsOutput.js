@@ -4,9 +4,13 @@ import uniqid from "uniqid";
 export default function WorkExpOutput({ skills }) {
   return (
     <div className="flex flex-col   border-sky-500 p-4 pl-3 ">
-      <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
-        Skills
-      </h1>
+      {skills.skill1 !== "" ? (
+        <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
+          Skills
+        </h1>
+      ) : (
+        ""
+      )}
 
       <div className="w-full flex-col py-2" key={uniqid()}>
         <div className="flex pl-2 gap-2 flex-wrap">
