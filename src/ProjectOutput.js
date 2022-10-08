@@ -1,6 +1,6 @@
 import uniqid from "uniqid";
 
-export default function WorkExpOutput({ projectsArr }) {
+export default function ProjectOutput({ projectsArr }) {
   return (
     <div className="flex flex-col   border-sky-500 px-3 ">
       {projectsArr.length >= 1 ? (

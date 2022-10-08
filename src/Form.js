@@ -105,7 +105,7 @@ export default function Form({
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
           <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
-            Project
+            Projects
           </h1>
 
           <Project
