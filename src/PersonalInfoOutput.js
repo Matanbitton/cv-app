@@ -9,8 +9,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-
 export default function personalInfoOutput({ personalInfo }) {
   return (
     <div className="flex flex-col justify-center items-center  border-sky-500   ">
@@ -77,7 +75,7 @@ export default function personalInfoOutput({ personalInfo }) {
         </div>
       </div>
       {personalInfo.summarySection && (
-        <div className=" w-full  bg-gray-100 p-2  pl-3   ">
+        <div className=" w-full  bg-gray-100 px-3 pt-2  ">
           <h1 className=" font-medium  text-sky-500 text-xl border-b-2 border-sky-500">
             Summary
           </h1>
