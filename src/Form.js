@@ -16,6 +16,7 @@ export default function Form({
   workExperience,
   workArr,
   projectsArr,
+  educationArr,
 
   handleCustom,
   handleEducation,
@@ -61,11 +62,6 @@ export default function Form({
               ></textarea>
             </div>
           )}
-          <div className=" flex justify-center">
-            <button className="bg-sky-500 rounded shadow w-[90%] text-white">
-              +Add Section
-            </button>
-          </div>
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
           <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
@@ -92,7 +88,11 @@ export default function Form({
             Education
           </h1>
 
-          <Education handleEducation={handleEducation} education={education} />
+          <Education
+            handleEducation={handleEducation}
+            education={education}
+            educationArr={educationArr}
+          />
 
           <div className=" flex justify-evenly gap-2 py-2 ">
             <button
@@ -108,7 +108,11 @@ export default function Form({
             Project
           </h1>
 
-          <Project handleProject={handleProject} project={project} />
+          <Project
+            handleProject={handleProject}
+            project={project}
+            projectsArr={projectsArr}
+          />
 
           <div className=" flex justify-evenly gap-2 py-2 ">
             <button
@@ -143,7 +147,10 @@ export default function Form({
           <Custom handleCustom={handleCustom} custom={custom} />
 
           <div className=" flex justify-evenly gap-2 py-2 ">
-            <button className="bg-sky-500 rounded shadow w-[90%] text-white">
+            <button
+              onClick={handleCustom}
+              className="bg-sky-500 rounded shadow w-[90%] text-white"
+            >
               +Add Section
             </button>
           </div>

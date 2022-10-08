@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import uniqid from "uniqid";
-export default function Education({ handleEducation, education }) {
+export default function Education({
+  handleEducation,
+  education,
+  educationArr,
+}) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
   function addBulletPointInput() {
@@ -26,6 +30,10 @@ export default function Education({ handleEducation, education }) {
       setBulletPointArr((prevArr) => [...prevArr, addBulletPointInput()]);
     }
   }
+  function clearBulletPoints() {
+    setBulletPointArr(() => []);
+  }
+  useEffect(() => clearBulletPoints(), [educationArr]);
 
   return (
     <div className="flex flex-col gap-2 ">

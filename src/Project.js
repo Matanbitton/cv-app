@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import uniqid from "uniqid";
-export default function Project({ handleProject, project }) {
+export default function Project({ handleProject, project, projectsArr }) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
   function addBulletPointInput() {
     let bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
-    console.log(bulletPointName);
 
     return (
       <input
@@ -26,6 +25,10 @@ export default function Project({ handleProject, project }) {
       setBulletPointArr((prevArr) => [...prevArr, addBulletPointInput()]);
     }
   }
+  function clearBulletPoints() {
+    setBulletPointArr(() => []);
+  }
+  useEffect(() => clearBulletPoints(), [projectsArr]);
 
   return (
     <div className="flex flex-col gap-2 ">
@@ -38,7 +41,7 @@ export default function Project({ handleProject, project }) {
             placeholder="Project Name..."
             name="projectName"
             onChange={handleProject}
-            value={project.company}
+            value={project.projectName}
           ></input>
         </div>
         <div className="flex flex-col">
@@ -50,7 +53,7 @@ export default function Project({ handleProject, project }) {
             placeholder="EXAMPLE: React, Redux, NodeJS ..."
             name="tech"
             onChange={handleProject}
-            value={project.position}
+            value={project.tech}
           ></input>
         </div>
       </div>

@@ -92,6 +92,7 @@ export default function Resume() {
   }
   function handleWorkArr(event) {
     event.preventDefault();
+    setWorkArr((prevArr) => [...prevArr, { ...workExperience, id: uniqid() }]);
     setWorkExperience((prevWork) => {
       return {
         ...prevWork,
@@ -105,7 +106,6 @@ export default function Resume() {
         bulletPoint4: "",
       };
     });
-    setWorkArr((prevArr) => [...prevArr, { ...workExperience, id: uniqid() }]);
   }
 
   function handleEducation(event) {
@@ -116,6 +116,18 @@ export default function Resume() {
   function handleEducationArr(event) {
     event.preventDefault();
     setEducationArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
+    setEducation(() => {
+      return {
+        institution: "",
+        degree: "",
+        startDate: "",
+        endDate: "",
+        bulletPoint1: "",
+        bulletPoint2: "",
+        bulletPoint3: "",
+        bulletPoint4: "",
+      };
+    });
   }
   function handleProject(event) {
     setProject((prevProject) => {
@@ -124,7 +136,17 @@ export default function Resume() {
   }
   function handleProjectsArr(event) {
     event.preventDefault();
-    setProjectsArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
+    setProjectsArr((prevArr) => [...prevArr, { ...project, id: uniqid() }]);
+    setProject(() => {
+      return {
+        projectName: "",
+        tech: "",
+        bulletPoint1: "",
+        bulletPoint2: "",
+        bulletPoint3: "",
+        bulletPoint4: "",
+      };
+    });
   }
   function handleSkill(event) {
     event.preventDefault();
@@ -132,7 +154,25 @@ export default function Resume() {
       return { ...prevSkill, [event.target.name]: event.target.value };
     });
   }
+  function resetSkill(event) {
+    event.preventDefault();
+    setSkill(() => {
+      return {
+        skill1: "",
+        skill2: "",
+        skill3: "",
+        skill4: "",
+        skill5: "",
+        skill6: "",
+        skill7: "",
+        skill8: "",
+        skill9: "",
+        skill10: "",
+      };
+    });
+  }
   function handleCustom(event) {
+    event.preventDefault();
     setCustom((prevCustom) => {
       return { ...prevCustom, [event.target.name]: event.target.value };
     });
@@ -172,6 +212,7 @@ export default function Resume() {
               handleProject={handleProject}
               handleProjectsArr={handleProjectsArr}
               handleSkill={handleSkill}
+              resetSkill={resetSkill}
               handleSummary={handleSummary}
               handleWorkArr={handleWorkArr}
               handleWorkExperience={handleWorkExperience}

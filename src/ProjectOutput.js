@@ -1,4 +1,3 @@
-import formatDate from "./formatDate";
 import uniqid from "uniqid";
 
 export default function WorkExpOutput({ projectsArr }) {

@@ -1,3 +1,6 @@
+import formatDate from "./formatDate";
+import uniqid from "uniqid";
+
 export default function WorkExpOutput({ workExpArr }) {
   return (
     <div className="flex flex-col   border-sky-500 p-4 pl-3 ">
@@ -9,7 +12,7 @@ export default function WorkExpOutput({ workExpArr }) {
         ""
       )}
       {workExpArr.map((work) => (
-        <div className="w-full flex-col pl-3">
+        <div className="w-full flex-col pl-3" key={uniqid()}>
           <div className="flex  justify-between">
             <div className="flex gap-2">
               <h1 className="font-medium ">{work.company}</h1>
@@ -17,9 +20,9 @@ export default function WorkExpOutput({ workExpArr }) {
               <p className="italic ">{work.position}</p>
             </div>
             <div className="flex gap-2  items-center">
-              <p className="italic text-sm">{work.startDate}</p>
+              <p className="italic text-sm">{formatDate(work.startDate)}</p>
               <p>-</p>
-              <p className="italic text-sm">{work.endDate}</p>
+              <p className="italic text-sm">{formatDate(work.endDate)}</p>
             </div>
           </div>
           <div className="flex flex-col pl-3 ">
