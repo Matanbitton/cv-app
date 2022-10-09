@@ -6,7 +6,7 @@ export default function WorkExpOutput({ custom }) {
     <div className="flex flex-col   border-sky-500 px-3">
       {custom.sectionTitle ? (
         <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
-          custom.sectionTitle
+          {custom.sectionTitle}
         </h1>
       ) : (
         ""

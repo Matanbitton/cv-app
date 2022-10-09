@@ -54,9 +54,15 @@ export default function personalInfoOutput({ personalInfo }) {
                   {" "}
                   <FontAwesomeIcon icon={faLink} />
                 </div>
-                <p className="break-all text-left">
-                  {personalInfo.linkedinLink}
-                </p>
+
+                <a
+                  className=" text-left"
+                  href={personalInfo.linkedinLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Linkedin
+                </a>
               </>
             )}
           </div>
@@ -66,9 +72,14 @@ export default function personalInfoOutput({ personalInfo }) {
                 <div className="text-sm text-sky-600">
                   <FontAwesomeIcon icon={faGlobe} />
                 </div>
-                <p className="break-all text-left">
-                  {personalInfo.websiteLink}
-                </p>
+                <a
+                  className=" text-left"
+                  href={personalInfo.websiteLink}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Portfolio
+                </a>
               </>
             )}
           </div>

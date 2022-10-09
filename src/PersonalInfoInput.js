@@ -73,12 +73,12 @@ export default function PersonalInfo({
           ></input>
         </div>
         <div className="flex flex-col">
-          <label for="websiteLink">Website Link:</label>
+          <label for="websiteLink">Portfolio Link:</label>
           <input
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
             onChange={handlePersonalInfoChange}
             type="text"
-            placeholder="Personal Website / Github Link"
+            placeholder="Portfolio Website / Github Link"
             name="websiteLink"
             value={personalInfo.websiteLink}
           ></input>
