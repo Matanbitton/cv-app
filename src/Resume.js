@@ -1,3 +1,5 @@
+import { faFileInvoice } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import uniqid from "uniqid";
 import Form from "./Form";
@@ -107,6 +109,11 @@ export default function Resume() {
       };
     });
   }
+  function handleDeleteWorkArr(id) {
+    setWorkArr((prevArr) => {
+      return prevArr.filter((work) => work.id !== id);
+    });
+  }
 
   function handleEducation(event) {
     setEducation((prevEducation) => {
@@ -179,7 +186,7 @@ export default function Resume() {
   }
 
   return (
-    <div className=" flex flex-col justify-center items-center">
+    <div className=" flex flex-col justify-center items-center relative">
       <div className="header flex gap-5 sm:gap-0 sm:flex-col box-border bg-sky-500  p-3 pb-24 justify-between items-center font-bold w-full sm:w-[380px]">
         <p className="text-4xl text-center pl-4 sm:pl-0 sm:text-2xl ">
           Easy CV
@@ -215,10 +222,11 @@ export default function Resume() {
               resetSkill={resetSkill}
               handleSummary={handleSummary}
               handleWorkArr={handleWorkArr}
+              handleDeleteWorkArr={handleDeleteWorkArr}
               handleWorkExperience={handleWorkExperience}
             />
           </div>
-          <div className="max-w-[750px]">
+          <div className="max-w-[750px] ">
             <FormOutPut
               personalInfo={personalInfo}
               workExpArr={workArr}
@@ -228,6 +236,10 @@ export default function Resume() {
               custom={custom}
             />
           </div>
+
+          <button className=" lg:hidden md:block sm:block rounded-full sticky bg-sky-500 p-4 text-2xl  font-bold bottom-[2%] border-white border-2">
+            CV
+          </button>
         </div>
       </div>
     </div>

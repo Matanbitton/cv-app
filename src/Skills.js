@@ -26,9 +26,9 @@ export default function Skills({ handleSkill, skills }) {
   }
 
   return (
-    <div className="flex flex-col gap-2 ">
-      <div className="flex justify-center sm:flex-col sm:max-w-[300px]">
-        <div className="flex flex-col w-[60%]">
+    <div className="flex flex-col    gap-2  ">
+      <div className="flex justify-center items-center">
+        <div className="flex flex-col w-[90%]">
           <label for="company">Skill:</label>
 
           {skillsInputArr}

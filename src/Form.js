@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PersonalInfoInput from "./PersonalInfoInput";
 import WorkExp from "./WorkExp";
 import Education from "./Education";
 import Project from "./Project";
 import Skills from "./Skills";
 import Custom from "./Custom";
+import uniqid from "uniqid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Form({
   personalInfo,
@@ -17,7 +20,6 @@ export default function Form({
   workArr,
   projectsArr,
   educationArr,
-
   handleCustom,
   handleEducation,
   handleEducationArr,
@@ -28,7 +30,21 @@ export default function Form({
   handleSummary,
   handleWorkExperience,
   handleWorkArr,
+  handleDeleteWorkArr,
 }) {
+  const [workHtml, setWorkHtml] = useState([]);
+
+  function handleWorkHtml(props) {
+    setWorkHtml((prev) => [
+      ...prev,
+      <WorkExp
+        handleWorkExperience={props.handleWorkExperience}
+        workExperience={props.workExperience}
+        workArr={props.workArr}
+      />,
+    ]);
+  }
+
   return (
     <div className="w-full h-full">
       <form className="">
@@ -67,8 +83,45 @@ export default function Form({
           <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
             Work Experience
           </h1>
-
+          {workArr.map((work) => {
+            return (
+              <div key={work.id} className="flex justify-center">
+                <div className="bg-slate-800 rounded-lg flex-col w-[80%] justify-center items-center gap-2">
+                  <div className="flex items-center gap-2 justify-between">
+                    <div className="flex gap-2 items-center">
+                      <h1 className="text-white font-bold text-xl pl-2">
+                        {work.company}
+                      </h1>
+                      <p className="text-sky-500">-</p>
+                      <h1 className="text-white ">{work.position}</h1>
+                    </div>
+                    <div className="flex">
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleDeleteWorkArr(work.id);
+                        }}
+                        className="bg-sky-500  text-white py-2 w-8"
+                      >
+                        <FontAwesomeIcon icon={faEdit} />
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleDeleteWorkArr(work.id);
+                        }}
+                        className="bg-red-500 rounded-r-lg text-white py-2 w-8"
+                      >
+                        <FontAwesomeIcon icon={faTrash} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
           <WorkExp
+            key={uniqid}
             handleWorkExperience={handleWorkExperience}
             workExperience={workExperience}
             workArr={workArr}

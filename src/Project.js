@@ -59,7 +59,7 @@ export default function Project({ handleProject, project, projectsArr }) {
       </div>
 
       <div className="flex justify-center w-full">
-        <div className="flex flex-col w-[89%] gap-2">
+        <div className="flex flex-col w-[90%] gap-2">
           <label>Bullet Points: (4 Max)</label>
           <div className="flex flex-col gap-2">{bulletPointInputArr}</div>
           <button
