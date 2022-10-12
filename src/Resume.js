@@ -114,6 +114,11 @@ export default function Resume() {
       return prevArr.filter((work) => work.id !== id);
     });
   }
+  function handleEditWorkArr(id) {
+    setWorkArr((prevArr) => {
+      return prevArr.filter((work) => work.id === id);
+    });
+  }
 
   function handleEducation(event) {
     setEducation((prevEducation) => {
@@ -198,9 +203,9 @@ export default function Resume() {
         </div>
       </div>
 
-      <div className="w-screen flex  justify-center items-center">
-        <div className="w-[80%]  absolute top-20 flex gap-5 justify-evenly sm:items-center sm:flex-col md:flex-col  lg:flex-row ">
-          <div className="  shadow-lg p-4 rounded-md    max-h-full  lg:min-w-[750px] md:min-w-[550px] min-h-[850px] sm:min-w-[340px] sm:max-w-[50%]  bg-gray-100 text-gray-800">
+      <div className="flex  justify-center items-center">
+        <div className=" absolute top-20 flex gap-5 justify-evenly sm:items-center sm:flex-col md:flex-col lg:flex-row ">
+          <div className="  shadow-lg p-4 rounded-md max-h-full lg:min-w-[750px] md:min-w-[550px] min-h-[850px] sm:min-w-[340px] sm:max-w-[50%]  bg-gray-100 text-gray-800">
             <Form
               personalInfo={personalInfo}
               custom={custom}
@@ -226,7 +231,7 @@ export default function Resume() {
               handleWorkExperience={handleWorkExperience}
             />
           </div>
-          <div className="max-w-[750px] ">
+          <div className="w-[210mm]">
             <FormOutPut
               personalInfo={personalInfo}
               workExpArr={workArr}
