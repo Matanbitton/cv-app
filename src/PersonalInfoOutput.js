@@ -90,7 +90,7 @@ export default function personalInfoOutput({ personalInfo }) {
           <h1 className=" font-medium  text-sky-500 text-xl border-b-2 border-sky-500">
             Summary
           </h1>
-          <p className="text-slate-800 pl-2 py-1 break-all  text-left">
+          <p className="text-slate-800 pl-2 py-1 break  text-left">
             {personalInfo.summarySection}
           </p>
         </div>
