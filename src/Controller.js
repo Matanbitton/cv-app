@@ -109,10 +109,22 @@ export default function Controller() {
       };
     });
   }
-  function handleDeleteWorkArr(id) {
-    setWorkArr((prevArr) => {
-      return prevArr.filter((work) => work.id !== id);
-    });
+  function handleDelete(type, id) {
+    if (type === "education") {
+      setEducationArr((prevArr) => {
+        return prevArr.filter((education) => education.id !== id);
+      });
+    }
+    if (type === "work") {
+      setWorkArr((prevArr) => {
+        return prevArr.filter((work) => work.id !== id);
+      });
+    }
+    if (type === "project") {
+      setProjectsArr((prevArr) => {
+        return prevArr.filter((project) => project.id !== id);
+      });
+    }
   }
 
   function handleEducation(event) {
@@ -222,7 +234,7 @@ export default function Controller() {
               resetSkill={resetSkill}
               handleSummary={handleSummary}
               handleWorkArr={handleWorkArr}
-              handleDeleteWorkArr={handleDeleteWorkArr}
+              handleDelete={handleDelete}
               handleWorkExperience={handleWorkExperience}
             />
           </div>
