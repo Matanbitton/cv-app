@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import uniqid from "uniqid";
-export default function Project({ handleProject, project, projectsArr }) {
+export default function Project({
+  handleProject,
+  project,
+  projectsArr,
+  handleProjectsArr,
+}) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
   function addBulletPointInput() {
@@ -69,6 +74,15 @@ export default function Project({ handleProject, project, projectsArr }) {
             Add Bullet Point
           </button>
         </div>
+      </div>
+
+      <div className=" flex justify-evenly gap-2 py-2 ">
+        <button
+          onClick={handleProjectsArr}
+          className="bg-sky-500 rounded shadow w-[90%] text-white"
+        >
+          +Add Section
+        </button>
       </div>
     </div>
   );

@@ -114,6 +114,14 @@ export default function Custom({ handleCustom, custom }) {
             >
               Add Bullet Point
             </button>
+            <div className=" flex justify-evenly gap-2 py-2 ">
+              <button
+                onClick={handleCustom}
+                className="bg-sky-500 rounded shadow w-full text-white"
+              >
+                +Add Section
+              </button>
+            </div>
           </div>
         </div>
       </div>

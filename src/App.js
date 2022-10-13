@@ -1,5 +1,5 @@
 import "./index.css";
-import Resume from "./Resume";
+import Controller from "./Controller";
 
 function App() {
   /* function handleRemoveSection(id) {
@@ -16,7 +16,7 @@ function App() {
       className="relative h-screen
        gap-4  items-center w-full bg-gray-900 text-white text-xxl overflow-scroll "
     >
-      <Resume />
+      <Controller />
     </div>
   );
 }

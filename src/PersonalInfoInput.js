@@ -3,6 +3,8 @@ import React from "react";
 export default function PersonalInfo({
   handlePersonalInfoChange,
   personalInfo,
+  handleSummary,
+  showSummay,
 }) {
   return (
     <div className="flex-col flex gap-2">
@@ -84,6 +86,27 @@ export default function PersonalInfo({
           ></input>
         </div>
       </div>
+      <span className="flex gap-2 justify-center">
+        <label for="summary">Add Summary Section?</label>
+        <input
+          className="checked:bg-red-500 bg-slate-700"
+          id="summary"
+          type="checkbox"
+          value="summary"
+          onChange={handleSummary}
+        ></input>
+      </span>
+      {showSummay && (
+        <div className="flex justify-center">
+          <textarea
+            placeholder="Write a descriptive summary about you here..."
+            value={personalInfo.summarySection}
+            name="summarySection"
+            onChange={handlePersonalInfoChange}
+            className=" h-24 w-[80%] p-2 border focus:border-sky-500 focus:outline-none"
+          ></textarea>
+        </div>
+      )}
     </div>
   );
 }

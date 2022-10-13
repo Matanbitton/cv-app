@@ -38,6 +38,15 @@ export default function Skills({ handleSkill, skills }) {
           >
             Add Skill
           </button>
+
+          <div className=" flex justify-evenly gap-2 py-2 ">
+            <button
+              onClick={handleSkill}
+              className="bg-sky-500 rounded shadow w-full text-white"
+            >
+              +Add Section
+            </button>
+          </div>
         </div>
       </div>
     </div>

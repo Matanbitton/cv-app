@@ -4,6 +4,7 @@ export default function Education({
   handleEducation,
   education,
   educationArr,
+  handleEducationArr,
 }) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
@@ -97,6 +98,14 @@ export default function Education({
             Add Bullet Point
           </button>
         </div>
+      </div>
+      <div className=" flex justify-evenly gap-2 py-2 ">
+        <button
+          onClick={handleEducationArr}
+          className="bg-sky-500 rounded shadow w-[90%] text-white"
+        >
+          +Add Section
+        </button>
       </div>
     </div>
   );
