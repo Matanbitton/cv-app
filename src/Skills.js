@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import uniqid from "uniqid";
+import { motion } from "framer-motion";
+
 export default function Skills({ handleSkill, skills }) {
   const [skillsInputArr, setSkillsInputArr] = useState([]);
 
@@ -7,7 +9,8 @@ export default function Skills({ handleSkill, skills }) {
     let skillNumber = `skill${skillsInputArr.length + 1}`;
 
     return (
-      <input
+      <motion.input
+        whileFocus={{ scale: 1.05 }}
         className=" pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
         type="text"
         placeholder="EXAMPLE: React"
@@ -15,7 +18,7 @@ export default function Skills({ handleSkill, skills }) {
         name={skillNumber}
         value={skills.skillNumber}
         key={uniqid()}
-      ></input>
+      ></motion.input>
     );
   }
   function handleSkillsInput(e) {

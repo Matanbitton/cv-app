@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import uniqid from "uniqid";
+import { motion } from "framer-motion";
+
 export default function Custom({ handleCustom, custom }) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
   const [showDate, setShowDate] = useState(false);
@@ -9,7 +11,8 @@ export default function Custom({ handleCustom, custom }) {
     console.log(bulletPointName);
 
     return (
-      <input
+      <motion.input
+        whileFocus={{ scale: 1.05 }}
         className=" pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
         type="text"
         id="bulletPoints"
@@ -18,7 +21,7 @@ export default function Custom({ handleCustom, custom }) {
         onChange={handleCustom}
         value={custom.bulletPointName}
         key={uniqid()}
-      ></input>
+      ></motion.input>
     );
   }
   function handleBulletPointsInput(e) {
@@ -37,25 +40,27 @@ export default function Custom({ handleCustom, custom }) {
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="company">Section Title:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             placeholder="EXAMPLE: Awards/ Volunteer work .."
             name="sectionTitle"
             onChange={handleCustom}
             value={custom.sectionTitle}
-          ></input>
+          ></motion.input>
         </div>
         <div className="flex flex-col">
           <label>Header:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             placeholder="EXAPLME: Dog Shelter/ Gold Medalist ..."
             name="header"
             onChange={handleCustom}
             value={custom.header}
-          ></input>
+          ></motion.input>
         </div>
       </div>
 
@@ -64,25 +69,27 @@ export default function Custom({ handleCustom, custom }) {
           <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
             <div className="flex flex-col ">
               <label for="from-date">From Date:</label>
-              <input
+              <motion.input
+                whileFocus={{ scale: 1.05 }}
                 className="w-full md:w-[258px] lg:w-[258px] rounded shadow border text-slate-400  border-slate-400 focus:border-sky-500 focus:outline-none"
                 type="date"
                 id="from-date"
                 name="startDate"
                 onChange={handleCustom}
                 value={custom.startDate}
-              ></input>
+              ></motion.input>
             </div>
             <div className="flex flex-col">
               <label for="to-date">To Date:</label>
-              <input
+              <motion.input
+                whileFocus={{ scale: 1.05 }}
                 className=" w-full md:w-[258px] lg:w-[258px] rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
                 type="date"
                 id="to-date"
                 name="endDate"
                 onChange={handleCustom}
                 value={custom.endDate}
-              ></input>
+              ></motion.input>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function PersonalInfo({
   handlePersonalInfoChange,
@@ -11,7 +12,8 @@ export default function PersonalInfo({
       <div className="flex justify-evenly gap-2 sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="firstName">First Name:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             onChange={handlePersonalInfoChange}
             type="text"
@@ -19,11 +21,12 @@ export default function PersonalInfo({
             name="firstName"
             id="firstName"
             value={personalInfo.firstName}
-          ></input>
+          ></motion.input>
         </div>
         <div className="flex flex-col">
           <label for="lastName">Last Name:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
             border
             onChange={handlePersonalInfoChange}
@@ -31,13 +34,14 @@ export default function PersonalInfo({
             placeholder="Last Name"
             name="lastName"
             value={personalInfo.lastName}
-          ></input>
+          ></motion.input>
         </div>
       </div>
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="phoneNumber">Phone Nubmer:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600 shadow pl-2"
             border
             onChange={handlePersonalInfoChange}
@@ -46,11 +50,12 @@ export default function PersonalInfo({
             name="phoneNumber"
             value={personalInfo.phoneNumber}
             pattern="^0?(([23489]{1}[0-9]{7})|[57]{1}[0-9]{8})+$"
-          ></input>
+          ></motion.input>
         </div>
         <div className="flex flex-col">
           <label for="email">Email:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none  invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600 shadow pl-2"
             border
             onChange={handlePersonalInfoChange}
@@ -59,42 +64,45 @@ export default function PersonalInfo({
             name="email"
             value={personalInfo.email}
             pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"
-          ></input>
+          ></motion.input>
         </div>
       </div>
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="linkedinLink">Linkedin Link:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
             onChange={handlePersonalInfoChange}
             type="text"
             placeholder="Linkedin Link"
             name="linkedinLink"
             value={personalInfo.linkedinLink}
-          ></input>
+          ></motion.input>
         </div>
         <div className="flex flex-col">
           <label for="websiteLink">Portfolio Link:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
             onChange={handlePersonalInfoChange}
             type="text"
             placeholder="Portfolio Website / Github Link"
             name="websiteLink"
             value={personalInfo.websiteLink}
-          ></input>
+          ></motion.input>
         </div>
       </div>
       <span className="flex gap-2 justify-center">
         <label for="summary">Add Summary Section?</label>
-        <input
+        <motion.input
+          whileFocus={{ scale: 1.05 }}
           className="checked:bg-red-500 bg-slate-700"
           id="summary"
           type="checkbox"
           value="summary"
           onChange={handleSummary}
-        ></input>
+        ></motion.input>
       </span>
       {showSummay && (
         <div className="flex justify-center">
