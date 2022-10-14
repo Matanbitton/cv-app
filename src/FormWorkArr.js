@@ -1,12 +1,19 @@
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 
 export default function FormWorkArr({ workArr, handleDelete }) {
   return (
     <div className="flex flex-col gap-2">
       {workArr.map((work) => {
         return (
-          <div key={work.id} className="flex justify-center">
+          <motion.div
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0 }}
+            transition={{ ease: "easeIn", duration: 0.3 }}
+            key={work.id}
+            className="flex justify-center"
+          >
             <div className="bg-slate-800 rounded-lg flex-col w-[90%] justify-center items-center gap-2">
               <div className="flex items-center gap-2 justify-between">
                 <div className="flex gap-2 items-center">
@@ -28,7 +35,7 @@ export default function FormWorkArr({ workArr, handleDelete }) {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         );
       })}
     </div>

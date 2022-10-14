@@ -1,9 +1,13 @@
-import { faFileInvoice } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEarthAmerica,
+  faFileInvoice,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import uniqid from "uniqid";
 import Form from "./Form";
 import CvPreview from "./CvPreview";
+import { motion } from "framer-motion";
 
 export default function Controller() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -199,7 +203,12 @@ export default function Controller() {
 
   return (
     <div className=" flex flex-col justify-center items-center relative">
-      <div className="header flex gap-5 sm:gap-0 sm:flex-col box-border bg-sky-500  p-3 pb-24 justify-between items-center font-bold w-full sm:w-[380px]">
+      <motion.div
+        animate={{ y: 0 }}
+        initial={{ y: -100 }}
+        transition={{ ease: "easeIn", duration: 0.4 }}
+        className="header flex gap-5 sm:gap-0 sm:flex-col box-border bg-sky-500  p-3 pb-24 justify-between items-center font-bold w-full sm:w-[380px]"
+      >
         <p className="text-4xl text-center pl-4 sm:pl-0 sm:text-2xl ">
           Easy CV
         </p>
@@ -208,11 +217,16 @@ export default function Controller() {
             The easier way to build a resume
           </p>
         </div>
-      </div>
+      </motion.div>
 
       <div className="flex  justify-center items-center">
         <div className=" absolute top-20 flex gap-5 justify-evenly sm:items-center sm:flex-col md:flex-col lg:flex-row ">
-          <div className="  shadow-lg p-4 rounded-md max-h-full lg:min-w-[750px] md:min-w-[550px] min-h-[850px] sm:min-w-[340px] sm:max-w-[50%]  bg-gray-100 text-gray-800">
+          <motion.div
+            animate={{ y: 0 }}
+            initial={{ y: 100 }}
+            transition={{ ease: "easeIn", duration: 0.4 }}
+            className="  shadow-lg p-4 rounded-md max-h-full lg:min-w-[750px] md:min-w-[550px] min-h-[850px] sm:min-w-[340px] sm:max-w-[50%]  bg-gray-100 text-gray-800"
+          >
             <Form
               personalInfo={personalInfo}
               custom={custom}
@@ -237,7 +251,7 @@ export default function Controller() {
               handleDelete={handleDelete}
               handleWorkExperience={handleWorkExperience}
             />
-          </div>
+          </motion.div>
           <div className="w-[210mm]">
             <CvPreview
               personalInfo={personalInfo}
@@ -249,9 +263,14 @@ export default function Controller() {
             />
           </div>
 
-          <button className=" lg:hidden md:block sm:block sticky bg-sky-500 rounded-md px-2 w-[20%] text-2xl md:top:[0%] md:left-[40%] md:bottom-[100%] font-bold bottom-[0%]">
+          <motion.button
+            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0.2, scale: 0 }}
+            transition={{ ease: "easeInOut", duration: 0.4 }}
+            className=" lg:hidden md:block sm:block sticky bg-slate-800 border-2 border-sky-500 text-white rounded-md px-2 w-full text-2xl  font-bold bottom-[0%]"
+          >
             <FontAwesomeIcon icon={faFileInvoice} /> Preview
-          </button>
+          </motion.button>
         </div>
       </div>
     </div>

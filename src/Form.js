@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import PersonalInfoInput from "./PersonalInfoInput";
 import WorkExp from "./WorkExp";
 import Education from "./Education";
@@ -6,8 +5,10 @@ import Project from "./Project";
 import Skills from "./Skills";
 import Custom from "./Custom";
 import uniqid from "uniqid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import FormWorkArr from "./FormWorkArr";
+import FormEducationArr from "./FormEducationArr";
+import FormProjectsArr from "./FormProjectsArr";
+import { motion } from "framer-motion";
 
 export default function Form({
   personalInfo,
@@ -30,7 +31,7 @@ export default function Form({
   handleSummary,
   handleWorkExperience,
   handleWorkArr,
-  handleDeleteWorkArr,
+  handleDelete,
 }) {
   return (
     <div className="w-full h-full">
@@ -57,6 +58,7 @@ export default function Form({
             workArr={workArr}
             handleWorkArr={handleWorkArr}
           />
+          <FormWorkArr handleDelete={handleDelete} workArr={workArr} />
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
           <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
@@ -67,6 +69,10 @@ export default function Form({
             education={education}
             educationArr={educationArr}
             handleEducationArr={handleEducationArr}
+          />
+          <FormEducationArr
+            educationArr={educationArr}
+            handleDelete={handleDelete}
           />
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
@@ -79,6 +85,10 @@ export default function Form({
             project={project}
             projectsArr={projectsArr}
             handleProjectsArr={handleProjectsArr}
+          />
+          <FormProjectsArr
+            projectsArr={projectsArr}
+            handleDelete={handleDelete}
           />
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">

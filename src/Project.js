@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import uniqid from "uniqid";
+import { motion } from "framer-motion";
+
 export default function Project({
   handleProject,
   project,
@@ -12,7 +14,8 @@ export default function Project({
     let bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
 
     return (
-      <input
+      <motion.input
+        whileFocus={{ scale: 1.05 }}
         className=" pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
         type="text"
         id="bulletPoints"
@@ -21,7 +24,7 @@ export default function Project({
         onChange={handleProject}
         value={project.bulletPointName}
         key={uniqid()}
-      ></input>
+      ></motion.input>
     );
   }
   function handleBulletPointsInput(e) {
@@ -40,18 +43,20 @@ export default function Project({
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
           <label for="company">Project Name:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             placeholder="Project Name..."
             name="projectName"
             onChange={handleProject}
             value={project.projectName}
-          ></input>
+          ></motion.input>
         </div>
         <div className="flex flex-col">
           <label for="position">Tech Used:</label>
-          <input
+          <motion.input
+            whileFocus={{ scale: 1.05 }}
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             id="position"
@@ -59,7 +64,7 @@ export default function Project({
             name="tech"
             onChange={handleProject}
             value={project.tech}
-          ></input>
+          ></motion.input>
         </div>
       </div>
 
