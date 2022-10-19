@@ -1,12 +1,10 @@
 import formatDate from "./formatDate";
 import uniqid from "uniqid";
-import { useRef, forwardRef } from "react";
-import ReactToPrint from "react-to-print";
-import { useReactToPrint } from "react-to-print";
 
-const WorkExpOutput = forwardRef(({ workExpArr }, ref) => {
+
+const WorkExpOutput = ({ workExpArr }) => {
   return (
-    <div className="flex flex-col   border-sky-500  px-3 " ref={ref}>
+    <div className="flex flex-col   border-sky-500  px-3 " >
       {workExpArr.length >= 1 ? (
         <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
           Work Experience
@@ -54,6 +52,6 @@ const WorkExpOutput = forwardRef(({ workExpArr }, ref) => {
       ))}
     </div>
   );
-});
+};
 
 export default WorkExpOutput;
