@@ -35,20 +35,22 @@ export default function Skills({ handleSkill, skills }) {
           <label for="company">Skill:</label>
 
           {skillsInputArr}
-          <button
+          <motion.button
+            whileTap={{ scale: 0.8 }}
             onClick={handleSkillsInput}
             className="bg-slate-400 rounded text-white"
           >
             Add Skill
-          </button>
+          </motion.button>
 
           <div className=" flex justify-evenly gap-2 py-2 ">
-            <button
+            <motion.button
+              whileTap={{ scale: 0.8 }}
               onClick={handleSkill}
               className="bg-sky-500 rounded shadow w-full text-white"
             >
               +Add Section
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import formatDate from "./formatDate";
 import uniqid from "uniqid";
 
-export default function WorkExpOutput({ custom }) {
+export default function WorkExpOutput({custom}) {
   return (
     <div className="flex flex-col   border-sky-500 px-3">
       {custom.sectionTitle ? (

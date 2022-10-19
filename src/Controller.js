@@ -1,13 +1,12 @@
-import {
-  faEarthAmerica,
-  faFileInvoice,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import {faFileInvoice} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useState, createRef, forwardRef} from "react";
+import {useReactToPrint} from "react-to-print";
 import uniqid from "uniqid";
 import Form from "./Form";
 import CvPreview from "./CvPreview";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
+import PDFFile from "./PDFFile";
 
 export default function Controller() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -84,7 +83,7 @@ export default function Controller() {
 
   function handlePersonalInfoChange(event) {
     setPersonalInfo((prevInfo) => {
-      return { ...prevInfo, [event.target.name]: event.target.value };
+      return {...prevInfo, [event.target.name]: event.target.value};
     });
   }
   function handleSummary() {
@@ -93,12 +92,12 @@ export default function Controller() {
 
   function handleWorkExperience(event) {
     setWorkExperience((prevWork) => {
-      return { ...prevWork, [event.target.name]: event.target.value };
+      return {...prevWork, [event.target.name]: event.target.value};
     });
   }
   function handleWorkArr(event) {
     event.preventDefault();
-    setWorkArr((prevArr) => [...prevArr, { ...workExperience, id: uniqid() }]);
+    setWorkArr((prevArr) => [...prevArr, {...workExperience, id: uniqid()}]);
     setWorkExperience((prevWork) => {
       return {
         ...prevWork,
@@ -133,12 +132,12 @@ export default function Controller() {
 
   function handleEducation(event) {
     setEducation((prevEducation) => {
-      return { ...prevEducation, [event.target.name]: event.target.value };
+      return {...prevEducation, [event.target.name]: event.target.value};
     });
   }
   function handleEducationArr(event) {
     event.preventDefault();
-    setEducationArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
+    setEducationArr((prevArr) => [...prevArr, {...education, id: uniqid()}]);
     setEducation(() => {
       return {
         institution: "",
@@ -154,12 +153,12 @@ export default function Controller() {
   }
   function handleProject(event) {
     setProject((prevProject) => {
-      return { ...prevProject, [event.target.name]: event.target.value };
+      return {...prevProject, [event.target.name]: event.target.value};
     });
   }
   function handleProjectsArr(event) {
     event.preventDefault();
-    setProjectsArr((prevArr) => [...prevArr, { ...project, id: uniqid() }]);
+    setProjectsArr((prevArr) => [...prevArr, {...project, id: uniqid()}]);
     setProject(() => {
       return {
         projectName: "",
@@ -174,7 +173,7 @@ export default function Controller() {
   function handleSkill(event) {
     event.preventDefault();
     setSkill((prevSkill) => {
-      return { ...prevSkill, [event.target.name]: event.target.value };
+      return {...prevSkill, [event.target.name]: event.target.value};
     });
   }
   function resetSkill(event) {
@@ -197,17 +196,21 @@ export default function Controller() {
   function handleCustom(event) {
     event.preventDefault();
     setCustom((prevCustom) => {
-      return { ...prevCustom, [event.target.name]: event.target.value };
+      return {...prevCustom, [event.target.name]: event.target.value};
     });
   }
+  const componentRef = createRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   return (
     <div className=" flex flex-col justify-center items-center relative">
       <motion.div
-        animate={{ y: 0 }}
-        initial={{ y: -100 }}
-        transition={{ ease: "easeIn", duration: 0.4 }}
-        className="header flex gap-5 sm:gap-0 sm:flex-col box-border bg-sky-500  p-3 pb-24 justify-between items-center font-bold w-full sm:w-[380px]"
+        animate={{y: 0}}
+        initial={{y: -100}}
+        transition={{ease: "easeIn", duration: 0.4}}
+        className="header flex gap-5 sm:gap-0 sm:flex-col box-border bg-sky-500  p-3 pb-24 justify-between items-center font-bold w-full sm:min-w-[340px]"
       >
         <p className="text-4xl text-center pl-4 sm:pl-0 sm:text-2xl ">
           Easy CV
@@ -222,9 +225,9 @@ export default function Controller() {
       <div className="flex  justify-center items-center">
         <div className=" absolute top-20 flex gap-5 justify-evenly sm:items-center sm:flex-col md:flex-col lg:flex-row ">
           <motion.div
-            animate={{ y: 0 }}
-            initial={{ y: 100 }}
-            transition={{ ease: "easeIn", duration: 0.4 }}
+            animate={{y: 0}}
+            initial={{y: 100}}
+            transition={{ease: "easeIn", duration: 0.4}}
             className="  shadow-lg p-4 rounded-md max-h-full lg:min-w-[750px] md:min-w-[550px] min-h-[850px] sm:min-w-[340px] sm:max-w-[50%]  bg-gray-100 text-gray-800"
           >
             <Form
@@ -261,13 +264,31 @@ export default function Controller() {
               skills={skills}
               custom={custom}
             />
+            <div className="hidden">
+              <PDFFile
+                ref={componentRef}
+                personalInfo={personalInfo}
+                workExpArr={workArr}
+                educationArr={educationArr}
+                projectsArr={projectsArr}
+                skills={skills}
+                custom={custom}
+              />
+            </div>
+            <motion.button
+              whileTap={{scale: 0.8}}
+              className="bg-sky-500 rounded mt-5 px-2 py-1"
+              onClick={handlePrint}
+            >
+              Export Resume
+            </motion.button>
           </div>
-
           <motion.button
-            animate={{ opacity: 1, scale: 1 }}
-            initial={{ opacity: 0.2, scale: 0 }}
-            transition={{ ease: "easeInOut", duration: 0.4 }}
-            className=" lg:hidden md:block sm:block sticky bg-slate-800 border-2 border-sky-500 text-white rounded-md px-2 w-full text-2xl  font-bold bottom-[0%]"
+            onClick={handlePrint}
+            animate={{opacity: 1, scale: 1}}
+            initial={{opacity: 0.2, scale: 0}}
+            transition={{ease: "easeInOut", duration: 0.4}}
+            className=" lg:hidden md:block sm:block sticky bg-sky-500 border-2 border-sky-500 text-white rounded-md px-2 w-full text-2xl  font-bold bottom-[0%]"
           >
             <FontAwesomeIcon icon={faFileInvoice} /> Preview
           </motion.button>

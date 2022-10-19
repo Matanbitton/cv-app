@@ -100,34 +100,38 @@ export default function Custom({ handleCustom, custom }) {
           <div className="w-full flex flex-col gap-2">
             {bulletPointInputArr}
             {!showDate && (
-              <button
+              <motion.button
+                whileTap={{ scale: 0.8 }}
                 onClick={handleShowDate}
                 className="bg-slate-400 text-white rounded"
               >
                 Add Date
-              </button>
+              </motion.button>
             )}
             {showDate && (
-              <button
+              <motion.button
+                whileTap={{ scale: 0.8 }}
                 onClick={handleShowDate}
                 className="bg-slate-400 text-white rounded"
               >
                 Remove Date
-              </button>
+              </motion.button>
             )}
-            <button
+            <motion.button
+              whileTap={{ scale: 0.8 }}
               onClick={handleBulletPointsInput}
               className="bg-slate-400 text-white rounded"
             >
               Add Bullet Point
-            </button>
+            </motion.button>
             <div className=" flex justify-evenly gap-2 py-2 ">
-              <button
+              <motion.button
+                whileTap={{ scale: 0.8 }}
                 onClick={handleCustom}
                 className="bg-sky-500 rounded shadow w-full text-white"
               >
                 +Add Section
-              </button>
+              </motion.button>
             </div>
           </div>
         </div>

@@ -72,22 +72,24 @@ export default function Project({
         <div className="flex flex-col w-[90%] gap-2">
           <label>Bullet Points: (4 Max)</label>
           <div className="flex flex-col gap-2">{bulletPointInputArr}</div>
-          <button
+          <motion.button
+            whileTap={{ scale: 0.8 }}
             onClick={handleBulletPointsInput}
             className="bg-slate-400 text-white rounded"
           >
             Add Bullet Point
-          </button>
+          </motion.button>
         </div>
       </div>
 
       <div className=" flex justify-evenly gap-2 py-2 ">
-        <button
+        <motion.button
+          whileTap={{ scale: 0.8 }}
           onClick={handleProjectsArr}
           className="bg-sky-500 rounded shadow w-[90%] text-white"
         >
           +Add Section
-        </button>
+        </motion.button>
       </div>
     </div>
   );

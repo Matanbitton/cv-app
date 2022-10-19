@@ -10,6 +10,10 @@ import {
 import uniqid from "uniqid";
 import formatDate from "./formatDate";
 
+//this file length is sub optimal to say the least and it can be broken down to multiple componenets
+//Altough due to npm react-to-print issue related to printing multiple components
+//I wasn't able to do it without using one big componenet.
+
 const PDFFile = forwardRef(({personalInfo, workExpArr, educationArr, projectsArr, custom, skills},ref) => {
     return (
       <div ref={ref} className="bg-gray-100 h-screen">
