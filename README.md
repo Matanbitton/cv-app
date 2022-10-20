@@ -4,7 +4,7 @@
 
 ## About The Project
 
-This project is a CV builder that enables users to create and export a resume in PDF format made to look aesthetic and professional within minutes.
+This project is a CV builder that enables users to create and export a resume in PDF format that is made to look aesthetic and professional, within minutes.
 
 it is completely free.
 
@@ -44,7 +44,7 @@ So I decided to create on myself with the help of **[react-to-pdf](https://www.n
 
 ## Future Improvements:
 
-- Create a backend with firebase that allow users to log in and keep their data.
+- Create a backend with firebase that allow users to log in and save their data.
 
 - Refractor the PDFfile.js file becasue it is wayy too long and it's because of problems I experienced with react-to-pdf.
 
