@@ -3,7 +3,7 @@ import uniqid from "uniqid";
 
 const WorkExpOutput = ({workExpArr}) => {
   return (
-    <div className="flex flex-col   border-sky-500  px-3 ">
+    <div className="flex flex-col gap-2  border-sky-500  px-3 ">
       {workExpArr.length >= 1 ? (
         <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
           Work Experience
@@ -27,22 +27,34 @@ const WorkExpOutput = ({workExpArr}) => {
           </div>
           <div className="flex flex-col pl-3 ">
             {work.bulletPoint1 ? (
-              <p className="text-slate-800">- {work.bulletPoint1}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{work.bulletPoint1}</p>
+              </div>
             ) : (
               ""
             )}
             {work.bulletPoint2 ? (
-              <p className="text-slate-800">- {work.bulletPoint2}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{work.bulletPoint2}</p>
+              </div>
             ) : (
               ""
             )}
             {work.bulletPoint3 ? (
-              <p className="text-slate-800">- {work.bulletPoint3}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{work.bulletPoint3}</p>
+              </div>
             ) : (
               ""
             )}
             {work.bulletPoint4 ? (
-              <p className="text-slate-800">- {work.bulletPoint4}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{work.bulletPoint4}</p>
+              </div>
             ) : (
               ""
             )}

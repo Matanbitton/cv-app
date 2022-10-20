@@ -29,22 +29,34 @@ export default function WorkExpOutput({educationArr}) {
           </div>
           <div className="flex flex-col pl-3 ">
             {education.bulletPoint1 ? (
-              <p className="text-slate-800">- {education.bulletPoint1}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{education.bulletPoint1}</p>
+              </div>
             ) : (
               ""
             )}
             {education.bulletPoint2 ? (
-              <p className="text-slate-800">- {education.bulletPoint2}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{education.bulletPoint2}</p>
+              </div>
             ) : (
               ""
             )}
             {education.bulletPoint3 ? (
-              <p className="text-slate-800">- {education.bulletPoint3}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{education.bulletPoint3}</p>
+              </div>
             ) : (
               ""
             )}
             {education.bulletPoint4 ? (
-              <p className="text-slate-800">- {education.bulletPoint4}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{education.bulletPoint4}</p>
+              </div>
             ) : (
               ""
             )}

@@ -1,6 +1,6 @@
 import uniqid from "uniqid";
 
-export default function ProjectOutput({ projectsArr }) {
+export default function ProjectOutput({projectsArr}) {
   return (
     <div className="flex flex-col  gap-2 border-sky-500 px-3 ">
       {projectsArr.length >= 1 ? (
@@ -21,22 +21,34 @@ export default function ProjectOutput({ projectsArr }) {
           </div>
           <div className="flex flex-col pl-3 ">
             {project.bulletPoint1 ? (
-              <p className="text-slate-800">- {project.bulletPoint1}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{project.bulletPoint1}</p>
+              </div>
             ) : (
               ""
             )}
             {project.bulletPoint2 ? (
-              <p className="text-slate-800">- {project.bulletPoint2}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{project.bulletPoint2}</p>
+              </div>
             ) : (
               ""
             )}
             {project.bulletPoint3 ? (
-              <p className="text-slate-800">- {project.bulletPoint3}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{project.bulletPoint3}</p>
+              </div>
             ) : (
               ""
             )}
             {project.bulletPoint4 ? (
-              <p className="text-slate-800">- {project.bulletPoint4}</p>
+              <div className="flex gap-1">
+                <p>•</p>
+                <p className="text-slate-800">{project.bulletPoint4}</p>
+              </div>
             ) : (
               ""
             )}
