@@ -133,7 +133,7 @@ const PDFFile = forwardRef(
               <div className="flex flex-col pl-3 ">
                 {work.bulletPoint1 ? (
                   <div className="flex gap-1">
-                    <p>-</p>
+                    <p>•</p>
                     <p className="text-slate-800">{work.bulletPoint1}</p>
                   </div>
                 ) : (
@@ -141,7 +141,7 @@ const PDFFile = forwardRef(
                 )}
                 {work.bulletPoint2 ? (
                   <div className="flex gap-1">
-                    <p>-</p>
+                    <p>•</p>
                     <p className="text-slate-800">{work.bulletPoint2}</p>
                   </div>
                 ) : (
@@ -149,7 +149,7 @@ const PDFFile = forwardRef(
                 )}
                 {work.bulletPoint3 ? (
                   <div className="flex gap-1">
-                    <p>-</p>
+                    <p>•</p>
                     <p className="text-slate-800">{work.bulletPoint3}</p>
                   </div>
                 ) : (
@@ -157,7 +157,7 @@ const PDFFile = forwardRef(
                 )}
                 {work.bulletPoint4 ? (
                   <div className="flex gap-1">
-                    <p>-</p>
+                    <p>•</p>
                     <p className="text-slate-800">{work.bulletPoint4}</p>
                   </div>
                 ) : (
@@ -195,22 +195,34 @@ const PDFFile = forwardRef(
               </div>
               <div className="flex flex-col pl-3 ">
                 {education.bulletPoint1 ? (
-                  <p className="text-slate-800">- {education.bulletPoint1}</p>
+                  <div className="flex gap-1">
+                    <p>•</p>
+                    <p className="text-slate-800">{education.bulletPoint1}</p>
+                  </div>
                 ) : (
                   ""
                 )}
                 {education.bulletPoint2 ? (
-                  <p className="text-slate-800">- {education.bulletPoint2}</p>
+                  <div className="flex gap-1">
+                    <p>•</p>
+                    <p className="text-slate-800">{education.bulletPoint2}</p>
+                  </div>
                 ) : (
                   ""
                 )}
                 {education.bulletPoint3 ? (
-                  <p className="text-slate-800">- {education.bulletPoint3}</p>
+                  <div className="flex gap-1">
+                    <p>•</p>
+                    <p className="text-slate-800">{education.bulletPoint3}</p>
+                  </div>
                 ) : (
                   ""
                 )}
                 {education.bulletPoint4 ? (
-                  <p className="text-slate-800">- {education.bulletPoint4}</p>
+                  <div className="flex gap-1">
+                    <p>•</p>
+                    <p className="text-slate-800">{education.bulletPoint4}</p>
+                  </div>
                 ) : (
                   ""
                 )}
@@ -237,22 +249,34 @@ const PDFFile = forwardRef(
               </div>
               <div className="flex flex-col pl-3 ">
                 {project.bulletPoint1 ? (
-                  <p className="text-slate-800">- {project.bulletPoint1}</p>
+                  <div className="flex gap-1">
+                    <p>•</p>
+                    <p className="text-slate-800">{project.bulletPoint1}</p>
+                  </div>
                 ) : (
                   ""
                 )}
                 {project.bulletPoint2 ? (
-                  <p className="text-slate-800">- {project.bulletPoint2}</p>
+                  <div className="flex gap-1">
+                    <p>•</p>
+                    <p className="text-slate-800">{project.bulletPoint2}</p>
+                  </div>
                 ) : (
                   ""
                 )}
                 {project.bulletPoint3 ? (
-                  <p className="text-slate-800">- {project.bulletPoint3}</p>
+                  <div className="flex gap-1">
+                    <p>•</p>
+                    <p className="text-slate-800">{project.bulletPoint3}</p>
+                  </div>
                 ) : (
                   ""
                 )}
                 {project.bulletPoint4 ? (
-                  <p className="text-slate-800">- {project.bulletPoint4}</p>
+                  <div className="flex gap-1">
+                    <p>•</p>
+                    <p className="text-slate-800">{project.bulletPoint4}</p>
+                  </div>
                 ) : (
                   ""
                 )}
@@ -288,22 +312,34 @@ const PDFFile = forwardRef(
             </div>
             <div className="flex flex-col pl-3 ">
               {custom.bulletPoint1 ? (
-                <p className="text-slate-800">- {custom.bulletPoint1}</p>
+                <div className="flex gap-1">
+                  <p>•</p>
+                  <p className="text-slate-800">{custom.bulletPoint1}</p>
+                </div>
               ) : (
                 ""
               )}
               {custom.bulletPoint2 ? (
-                <p className="text-slate-800">- {custom.bulletPoint2}</p>
+                <div className="flex gap-1">
+                  <p>•</p>
+                  <p className="text-slate-800">{custom.bulletPoint2}</p>
+                </div>
               ) : (
                 ""
               )}
               {custom.bulletPoint3 ? (
-                <p className="text-slate-800">- {custom.bulletPoint3}</p>
+                <div className="flex gap-1">
+                  <p>•</p>
+                  <p className="text-slate-800">{custom.bulletPoint3}</p>
+                </div>
               ) : (
                 ""
               )}
               {custom.bulletPoint4 ? (
-                <p className="text-slate-800">- {custom.bulletPoint4}</p>
+                <div className="flex gap-1">
+                  <p>•</p>
+                  <p className="text-slate-800">{custom.bulletPoint4}</p>
+                </div>
               ) : (
                 ""
               )}
