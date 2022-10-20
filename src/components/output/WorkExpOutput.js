@@ -1,10 +1,9 @@
-import formatDate from "./formatDate";
+import formatDate from "../../tools/formatDate";
 import uniqid from "uniqid";
 
-
-const WorkExpOutput = ({ workExpArr }) => {
+const WorkExpOutput = ({workExpArr}) => {
   return (
-    <div className="flex flex-col   border-sky-500  px-3 " >
+    <div className="flex flex-col   border-sky-500  px-3 ">
       {workExpArr.length >= 1 ? (
         <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
           Work Experience

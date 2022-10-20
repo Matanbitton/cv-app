@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 import uniqid from "uniqid";
 import { motion } from "framer-motion";
-import ReactToPrint from "react-to-print";
-import { useReactToPrint } from "react-to-print";
+
 export default function WorkExp({
   handleWorkExperience,
   workExperience,

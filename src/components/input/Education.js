@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import uniqid from "uniqid";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 export default function Education({
   handleEducation,
@@ -16,7 +16,7 @@ export default function Education({
 
     return (
       <motion.input
-        whileFocus={{ scale: 1.05 }}
+        whileFocus={{scale: 1.05}}
         className=" pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
         type="text"
         id="bulletPoints"
@@ -45,7 +45,7 @@ export default function Education({
         <div className="flex flex-col">
           <label for="company">Institution:</label>
           <motion.input
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{scale: 1.05}}
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             placeholder="Institution"
@@ -57,7 +57,7 @@ export default function Education({
         <div className="flex flex-col">
           <label for="position">Degree/Course:</label>
           <motion.input
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{scale: 1.05}}
             type="text"
             className="rounded pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             id="position"
@@ -72,7 +72,7 @@ export default function Education({
         <div className="flex flex-col">
           <label for="from-date">From Date:</label>
           <motion.input
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{scale: 1.05}}
             className="w-full md:w-[258px] lg:w-[258px] rounded shadow border text-slate-400  border-slate-400 focus:border-sky-500 focus:outline-none"
             type="date"
             id="from-date"
@@ -84,7 +84,7 @@ export default function Education({
         <div className="flex flex-col">
           <label for="to-date">To Date(leave blank to mark present):</label>
           <motion.input
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{scale: 1.05}}
             className=" w-full md:w-[258px] lg:w-[258px] rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
             type="date"
             id="to-date"
@@ -99,7 +99,7 @@ export default function Education({
           <label>Bullet Points: (4 Max)</label>
           <div className="flex flex-col gap-2">{bulletPointInputArr}</div>
           <motion.button
-            whileTap={{ scale: 0.8 }}
+            whileTap={{scale: 0.8}}
             onClick={handleBulletPointsInput}
             className="bg-slate-400 text-white rounded"
           >
@@ -109,7 +109,7 @@ export default function Education({
       </div>
       <div className=" flex justify-evenly gap-2 py-2 ">
         <motion.button
-          whileTap={{ scale: 0.8 }}
+          whileTap={{scale: 0.8}}
           onClick={handleEducationArr}
           className="bg-sky-500 rounded shadow w-[90%] text-white"
         >

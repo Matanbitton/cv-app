@@ -1,7 +1,7 @@
-import formatDate from "./formatDate";
+import formatDate from "../../tools/formatDate";
 import uniqid from "uniqid";
 
-export default function WorkExpOutput({ educationArr }) {
+export default function WorkExpOutput({educationArr}) {
   return (
     <div className="flex flex-col   border-sky-500 px-3 ">
       {educationArr.length >= 1 ? (

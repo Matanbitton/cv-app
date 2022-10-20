@@ -8,7 +8,6 @@ import uniqid from "uniqid";
 import FormWorkArr from "./FormWorkArr";
 import FormEducationArr from "./FormEducationArr";
 import FormProjectsArr from "./FormProjectsArr";
-import { motion } from "framer-motion";
 
 export default function Form({
   personalInfo,

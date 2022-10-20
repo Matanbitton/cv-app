@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import uniqid from "uniqid";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
-export default function Custom({ handleCustom, custom }) {
+export default function Custom({handleCustom, custom}) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
   const [showDate, setShowDate] = useState(false);
 
@@ -12,7 +12,7 @@ export default function Custom({ handleCustom, custom }) {
 
     return (
       <motion.input
-        whileFocus={{ scale: 1.05 }}
+        whileFocus={{scale: 1.05}}
         className=" pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
         type="text"
         id="bulletPoints"
@@ -41,7 +41,7 @@ export default function Custom({ handleCustom, custom }) {
         <div className="flex flex-col">
           <label for="company">Section Title:</label>
           <motion.input
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{scale: 1.05}}
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             placeholder="EXAMPLE: Awards/ Volunteer work .."
@@ -53,7 +53,7 @@ export default function Custom({ handleCustom, custom }) {
         <div className="flex flex-col">
           <label>Header:</label>
           <motion.input
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{scale: 1.05}}
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             placeholder="EXAPLME: Dog Shelter/ Gold Medalist ..."
@@ -70,7 +70,7 @@ export default function Custom({ handleCustom, custom }) {
             <div className="flex flex-col ">
               <label for="from-date">From Date:</label>
               <motion.input
-                whileFocus={{ scale: 1.05 }}
+                whileFocus={{scale: 1.05}}
                 className="w-full md:w-[258px] lg:w-[258px] rounded shadow border text-slate-400  border-slate-400 focus:border-sky-500 focus:outline-none"
                 type="date"
                 id="from-date"
@@ -82,7 +82,7 @@ export default function Custom({ handleCustom, custom }) {
             <div className="flex flex-col">
               <label for="to-date">To Date:</label>
               <motion.input
-                whileFocus={{ scale: 1.05 }}
+                whileFocus={{scale: 1.05}}
                 className=" w-full md:w-[258px] lg:w-[258px] rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
                 type="date"
                 id="to-date"
@@ -101,7 +101,7 @@ export default function Custom({ handleCustom, custom }) {
             {bulletPointInputArr}
             {!showDate && (
               <motion.button
-                whileTap={{ scale: 0.8 }}
+                whileTap={{scale: 0.8}}
                 onClick={handleShowDate}
                 className="bg-slate-400 text-white rounded"
               >
@@ -110,7 +110,7 @@ export default function Custom({ handleCustom, custom }) {
             )}
             {showDate && (
               <motion.button
-                whileTap={{ scale: 0.8 }}
+                whileTap={{scale: 0.8}}
                 onClick={handleShowDate}
                 className="bg-slate-400 text-white rounded"
               >
@@ -118,7 +118,7 @@ export default function Custom({ handleCustom, custom }) {
               </motion.button>
             )}
             <motion.button
-              whileTap={{ scale: 0.8 }}
+              whileTap={{scale: 0.8}}
               onClick={handleBulletPointsInput}
               className="bg-slate-400 text-white rounded"
             >
@@ -126,7 +126,7 @@ export default function Custom({ handleCustom, custom }) {
             </motion.button>
             <div className=" flex justify-evenly gap-2 py-2 ">
               <motion.button
-                whileTap={{ scale: 0.8 }}
+                whileTap={{scale: 0.8}}
                 onClick={handleCustom}
                 className="bg-sky-500 rounded shadow w-full text-white"
               >

@@ -1,12 +1,12 @@
 import {faFileInvoice} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useState, createRef, forwardRef} from "react";
+import {useState, createRef} from "react";
 import {useReactToPrint} from "react-to-print";
 import uniqid from "uniqid";
-import Form from "./Form";
-import CvPreview from "./CvPreview";
+import Form from "./input/Form";
+import CvPreview from "./output/CvPreview";
 import {motion} from "framer-motion";
-import PDFFile from "./PDFFile";
+import PDFFile from "./output/PDFFile";
 
 export default function Controller() {
   const [personalInfo, setPersonalInfo] = useState({
@@ -275,6 +275,7 @@ export default function Controller() {
                 custom={custom}
               />
             </div>
+
             <motion.button
               whileTap={{scale: 0.8}}
               className="bg-sky-500 rounded mt-5 px-2 py-1"
@@ -290,7 +291,7 @@ export default function Controller() {
             transition={{ease: "easeInOut", duration: 0.4}}
             className=" lg:hidden md:block sm:block sticky bg-sky-500 border-2 border-sky-500 text-white rounded-md px-2 w-full text-2xl  font-bold bottom-[0%]"
           >
-            <FontAwesomeIcon icon={faFileInvoice} /> Preview
+            <FontAwesomeIcon icon={faFileInvoice} /> Preview/Export
           </motion.button>
         </div>
       </div>

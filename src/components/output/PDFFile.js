@@ -8,16 +8,20 @@ import {
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import uniqid from "uniqid";
-import formatDate from "./formatDate";
+import formatDate from "../../tools/formatDate";
 
 //this file length is sub optimal to say the least and it can be broken down to multiple componenets
 //Altough due to npm react-to-print issue related to printing multiple components
 //I wasn't able to do it without using one big componenet.
 
-const PDFFile = forwardRef(({personalInfo, workExpArr, educationArr, projectsArr, custom, skills},ref) => {
+const PDFFile = forwardRef(
+  (
+    {personalInfo, workExpArr, educationArr, projectsArr, custom, skills},
+    ref
+  ) => {
     return (
-      <div ref={ref} className="bg-gray-100 h-screen">
-        <div className="flex flex-col justify-center items-center  border-sky-500   ">
+      <div ref={ref}>
+        <div className="flex flex-col justify-center items-center  border-sky-500">
           {personalInfo.firstName && personalInfo.lastName ? (
             <div className="flex gap-2 text-3xl text-sky-400 font-bold bg-slate-800 px-2 pt-2 text-center justify-center w-full">
               <h1>{personalInfo.firstName}</h1>
@@ -104,7 +108,7 @@ const PDFFile = forwardRef(({personalInfo, workExpArr, educationArr, projectsArr
             </div>
           )}
         </div>
-        <div className="flex flex-col   border-sky-500  px-3 " ref={ref}>
+        <div className="flex flex-col gap-2 border-sky-500  px-3 ">
           {workExpArr.length >= 1 ? (
             <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
               Work Experience
@@ -113,7 +117,7 @@ const PDFFile = forwardRef(({personalInfo, workExpArr, educationArr, projectsArr
             ""
           )}
           {workExpArr.map((work) => (
-            <div className="w-full flex-col pl-3" key={uniqid()}>
+            <div className="w-full flex-col pl-3 text-slate-800" key={uniqid()}>
               <div className="flex  justify-between">
                 <div className="flex gap-2">
                   <h1 className="font-medium ">{work.company}</h1>
@@ -128,22 +132,34 @@ const PDFFile = forwardRef(({personalInfo, workExpArr, educationArr, projectsArr
               </div>
               <div className="flex flex-col pl-3 ">
                 {work.bulletPoint1 ? (
-                  <p className="text-slate-800">- {work.bulletPoint1}</p>
+                  <div className="flex gap-1">
+                    <p>-</p>
+                    <p className="text-slate-800">{work.bulletPoint1}</p>
+                  </div>
                 ) : (
                   ""
                 )}
                 {work.bulletPoint2 ? (
-                  <p className="text-slate-800">- {work.bulletPoint2}</p>
+                  <div className="flex gap-1">
+                    <p>-</p>
+                    <p className="text-slate-800">{work.bulletPoint2}</p>
+                  </div>
                 ) : (
                   ""
                 )}
                 {work.bulletPoint3 ? (
-                  <p className="text-slate-800">- {work.bulletPoint3}</p>
+                  <div className="flex gap-1">
+                    <p>-</p>
+                    <p className="text-slate-800">{work.bulletPoint3}</p>
+                  </div>
                 ) : (
                   ""
                 )}
                 {work.bulletPoint4 ? (
-                  <p className="text-slate-800">- {work.bulletPoint4}</p>
+                  <div className="flex gap-1">
+                    <p>-</p>
+                    <p className="text-slate-800">{work.bulletPoint4}</p>
+                  </div>
                 ) : (
                   ""
                 )}
@@ -151,7 +167,7 @@ const PDFFile = forwardRef(({personalInfo, workExpArr, educationArr, projectsArr
             </div>
           ))}
         </div>
-        <div className="flex flex-col   border-sky-500 px-3 ">
+        <div className="flex flex-col gap-2 border-sky-500 px-3 ">
           {educationArr.length >= 1 ? (
             <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
               Education

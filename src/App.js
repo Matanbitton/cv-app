@@ -1,5 +1,5 @@
 import "./index.css";
-import Controller from "./Controller";
+import Controller from "./components/Controller";
 
 function App() {
   /* function handleRemoveSection(id) {

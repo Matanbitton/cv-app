@@ -1,4 +1,4 @@
-import formatDate from "./formatDate";
+import formatDate from "../../tools/formatDate";
 import uniqid from "uniqid";
 
 export default function WorkExpOutput({custom}) {
