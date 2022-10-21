@@ -12,10 +12,7 @@ function App() {
   } */
 
   return (
-    <div
-      className="relative h-screen
-       gap-4  items-center w-full bg-gray-900 text-white text-xxl overflow-scroll "
-    >
+    <div className=" ">
       <Controller />
     </div>
   );

@@ -82,7 +82,9 @@ export default function Education({
           ></motion.input>
         </div>
         <div className="flex flex-col">
-          <label for="to-date">To Date(leave blank to mark present):</label>
+          <label for="to-date" className="flex items-center gap-2">
+            To Date<p className="text-sm">(leave blank to mark present)</p>
+          </label>
           <motion.input
             whileFocus={{scale: 1.05}}
             className=" w-full md:w-[258px] lg:w-[258px] rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
