@@ -20,7 +20,7 @@ const PDFFile = forwardRef(
     ref
   ) => {
     return (
-      <div ref={ref}>
+      <div ref={ref} className="bg-gray-100 h-screen ">
         <div className="flex flex-col justify-center items-center  border-sky-500">
           {personalInfo.firstName && personalInfo.lastName ? (
             <div className="flex gap-2 text-3xl text-sky-400 font-bold bg-slate-800 px-2 pt-2 text-center justify-center w-full">
