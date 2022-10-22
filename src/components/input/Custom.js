@@ -8,7 +8,6 @@ export default function Custom({handleCustom, custom}) {
 
   function addBulletPointInput() {
     let bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
-    console.log(bulletPointName);
 
     return (
       <motion.input
