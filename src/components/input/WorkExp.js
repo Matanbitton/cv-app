@@ -7,6 +7,8 @@ export default function WorkExp({
   workExperience,
   workArr,
   handleWorkArr,
+  handleSuccessModal,
+  handleSuccessModalMessage,
 }) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
@@ -112,7 +114,12 @@ export default function WorkExp({
       <div className=" flex justify-evenly gap-2 py-2 ">
         <motion.button
           whileTap={{scale: 0.8}}
-          onClick={handleWorkArr}
+          type={"button"}
+          onClick={() => {
+            handleWorkArr();
+            handleSuccessModal();
+            handleSuccessModalMessage("Work Section Added");
+          }}
           className="bg-sky-500 rounded shadow w-[90%] text-white"
         >
           +Add Section

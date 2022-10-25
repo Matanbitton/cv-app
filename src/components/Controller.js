@@ -8,7 +8,10 @@ import CvPreview from "./output/CvPreview";
 import {motion} from "framer-motion";
 import PDFFile from "./output/PDFFile";
 
-export default function Controller() {
+export default function Controller({
+  handleSuccessModal,
+  handleSuccessModalMessage,
+}) {
   const [personalInfo, setPersonalInfo] = useState({
     firstName: "",
     lastName: "",
@@ -95,8 +98,7 @@ export default function Controller() {
       return {...prevWork, [event.target.name]: event.target.value};
     });
   }
-  function handleWorkArr(event) {
-    event.preventDefault();
+  function handleWorkArr() {
     setWorkArr((prevArr) => [...prevArr, {...workExperience, id: uniqid()}]);
     setWorkExperience((prevWork) => {
       return {
@@ -135,8 +137,7 @@ export default function Controller() {
       return {...prevEducation, [event.target.name]: event.target.value};
     });
   }
-  function handleEducationArr(event) {
-    event.preventDefault();
+  function handleEducationArr() {
     setEducationArr((prevArr) => [...prevArr, {...education, id: uniqid()}]);
     setEducation(() => {
       return {
@@ -156,8 +157,7 @@ export default function Controller() {
       return {...prevProject, [event.target.name]: event.target.value};
     });
   }
-  function handleProjectsArr(event) {
-    event.preventDefault();
+  function handleProjectsArr() {
     setProjectsArr((prevArr) => [...prevArr, {...project, id: uniqid()}]);
     setProject(() => {
       return {
@@ -199,6 +199,7 @@ export default function Controller() {
       return {...prevCustom, [event.target.name]: event.target.value};
     });
   }
+
   const componentRef = createRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -253,6 +254,8 @@ export default function Controller() {
               handleWorkArr={handleWorkArr}
               handleDelete={handleDelete}
               handleWorkExperience={handleWorkExperience}
+              handleSuccessModal={handleSuccessModal}
+              handleSuccessModalMessage={handleSuccessModalMessage}
             />
           </motion.div>
           <div className="">

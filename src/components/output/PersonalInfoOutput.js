@@ -4,14 +4,11 @@ import {
   faLink,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const personalInfoOutput = ({ personalInfo }) => {
+const personalInfoOutput = ({personalInfo}) => {
   return (
-    <div
-      className="flex flex-col justify-center items-center  border-sky-500   "
-      
-    >
+    <div className="flex flex-col justify-center items-center  border-sky-500">
       {personalInfo.firstName && personalInfo.lastName ? (
         <div className="flex gap-2 text-3xl text-sky-400 font-bold bg-slate-800 px-2 pt-2 text-center justify-center w-full">
           <h1>{personalInfo.firstName}</h1>

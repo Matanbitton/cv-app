@@ -7,6 +7,8 @@ export default function Education({
   education,
   educationArr,
   handleEducationArr,
+  handleSuccessModal,
+  handleSuccessModalMessage,
 }) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
@@ -112,7 +114,12 @@ export default function Education({
       <div className=" flex justify-evenly gap-2 py-2 ">
         <motion.button
           whileTap={{scale: 0.8}}
-          onClick={handleEducationArr}
+          type="button"
+          onClick={() => {
+            handleEducationArr();
+            handleSuccessModal();
+            handleSuccessModalMessage("Education Section Added");
+          }}
           className="bg-sky-500 rounded shadow w-[90%] text-white"
         >
           +Add Section

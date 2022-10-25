@@ -8,6 +8,8 @@ import uniqid from "uniqid";
 import FormWorkArr from "./FormWorkArr";
 import FormEducationArr from "./FormEducationArr";
 import FormProjectsArr from "./FormProjectsArr";
+import SuccessModal from "../UI/SuccessModal";
+import {useState} from "react";
 
 export default function Form({
   personalInfo,
@@ -32,8 +34,23 @@ export default function Form({
   handleWorkArr,
   handleDelete,
 }) {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [successModalMessage, setSuccessModalMessage] = useState("");
+
+  const handleSuccessModal = () => {
+    setShowSuccessModal((prev) => !prev);
+    setTimeout(() => {
+      setShowSuccessModal((prev) => !prev);
+    }, 2000);
+  };
+
+  const handleSuccessModalMessage = (message) => {
+    setSuccessModalMessage(message);
+  };
   return (
     <div className="w-full h-full">
+      {showSuccessModal && <SuccessModal message={successModalMessage} />}
+
       <form className="">
         <fieldset className="flex flex-col gap-2 ">
           <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
@@ -56,6 +73,8 @@ export default function Form({
             workExperience={workExperience}
             workArr={workArr}
             handleWorkArr={handleWorkArr}
+            handleSuccessModal={handleSuccessModal}
+            handleSuccessModalMessage={handleSuccessModalMessage}
           />
           <FormWorkArr handleDelete={handleDelete} workArr={workArr} />
         </fieldset>
@@ -68,6 +87,8 @@ export default function Form({
             education={education}
             educationArr={educationArr}
             handleEducationArr={handleEducationArr}
+            handleSuccessModal={handleSuccessModal}
+            handleSuccessModalMessage={handleSuccessModalMessage}
           />
           <FormEducationArr
             educationArr={educationArr}
@@ -84,6 +105,8 @@ export default function Form({
             project={project}
             projectsArr={projectsArr}
             handleProjectsArr={handleProjectsArr}
+            handleSuccessModal={handleSuccessModal}
+            handleSuccessModalMessage={handleSuccessModalMessage}
           />
           <FormProjectsArr
             projectsArr={projectsArr}
@@ -95,14 +118,24 @@ export default function Form({
             Skills
           </h1>
 
-          <Skills handleSkill={handleSkill} skills={skills} />
+          <Skills
+            handleSkill={handleSkill}
+            skills={skills}
+            handleSuccessModal={handleSuccessModal}
+            handleSuccessModalMessage={handleSuccessModalMessage}
+          />
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
           <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
             Custom
           </h1>
 
-          <Custom handleCustom={handleCustom} custom={custom} />
+          <Custom
+            handleCustom={handleCustom}
+            custom={custom}
+            handleSuccessModal={handleSuccessModal}
+            handleSuccessModalMessage={handleSuccessModalMessage}
+          />
         </fieldset>
       </form>
     </div>

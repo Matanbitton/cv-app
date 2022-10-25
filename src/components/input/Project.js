@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import uniqid from "uniqid";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 export default function Project({
   handleProject,
   project,
   projectsArr,
   handleProjectsArr,
+  handleSuccessModal,
+  handleSuccessModalMessage,
 }) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
@@ -15,7 +17,7 @@ export default function Project({
 
     return (
       <motion.input
-        whileFocus={{ scale: 1.05 }}
+        whileFocus={{scale: 1.05}}
         className=" pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
         type="text"
         id="bulletPoints"
@@ -44,7 +46,7 @@ export default function Project({
         <div className="flex flex-col">
           <label for="company">Project Name:</label>
           <motion.input
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{scale: 1.05}}
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             placeholder="Project Name..."
@@ -56,7 +58,7 @@ export default function Project({
         <div className="flex flex-col">
           <label for="position">Tech Used:</label>
           <motion.input
-            whileFocus={{ scale: 1.05 }}
+            whileFocus={{scale: 1.05}}
             type="text"
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             id="position"
@@ -73,7 +75,7 @@ export default function Project({
           <label>Bullet Points: (4 Max)</label>
           <div className="flex flex-col gap-2">{bulletPointInputArr}</div>
           <motion.button
-            whileTap={{ scale: 0.8 }}
+            whileTap={{scale: 0.8}}
             onClick={handleBulletPointsInput}
             className="bg-slate-400 text-white rounded"
           >
@@ -84,8 +86,13 @@ export default function Project({
 
       <div className=" flex justify-evenly gap-2 py-2 ">
         <motion.button
-          whileTap={{ scale: 0.8 }}
-          onClick={handleProjectsArr}
+          whileTap={{scale: 0.8}}
+          type="button"
+          onClick={() => {
+            handleProjectsArr();
+            handleSuccessModal();
+            handleSuccessModalMessage("Projects Section Added");
+          }}
           className="bg-sky-500 rounded shadow w-[90%] text-white"
         >
           +Add Section
