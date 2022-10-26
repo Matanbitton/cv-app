@@ -51,7 +51,11 @@ export default function Skills({
           <div className=" flex justify-evenly gap-2 py-2 ">
             <motion.button
               whileTap={{scale: 0.8}}
-              onClick={handleSkill}
+              onClick={(event) => {
+                handleSkill(event);
+                handleSuccessModal();
+                handleSuccessModalMessage("Skills Section Added");
+              }}
               className="bg-sky-500 rounded shadow w-full text-white"
             >
               +Add Section

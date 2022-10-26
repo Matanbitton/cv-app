@@ -2,7 +2,12 @@ import React, {useState} from "react";
 import uniqid from "uniqid";
 import {motion} from "framer-motion";
 
-export default function Custom({handleCustom, custom}) {
+export default function Custom({
+  handleCustom,
+  custom,
+  handleSuccessModal,
+  handleSuccessModalMessage,
+}) {
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
   const [showDate, setShowDate] = useState(false);
 
@@ -126,7 +131,13 @@ export default function Custom({handleCustom, custom}) {
             <div className=" flex justify-evenly gap-2 py-2 ">
               <motion.button
                 whileTap={{scale: 0.8}}
-                onClick={handleCustom}
+                onClick={(event) => {
+                  handleCustom(event);
+                  handleSuccessModal();
+                  handleSuccessModalMessage(
+                    `${custom.sectionTitle} Section Added`
+                  );
+                }}
                 className="bg-sky-500 rounded shadow w-full text-white"
               >
                 +Add Section
