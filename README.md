@@ -1,7 +1,13 @@
-# EasyCV
+## EasyCV
 ![qw](https://user-images.githubusercontent.com/69572698/198302336-bd288236-5b56-4117-a2cc-381da92ba949.png)
 
 - 👨‍💻 See the live version of this project at **[EasyCV](https://matanbitton.github.io/cv-app/)**
+
+## Demo
+
+
+https://user-images.githubusercontent.com/69572698/198700105-b5db24dc-5fb2-49ba-b9b7-5504eb9b77a3.mp4
+
 
 ## About The Project
 
