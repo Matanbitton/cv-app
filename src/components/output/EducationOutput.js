@@ -21,7 +21,11 @@ export default function WorkExpOutput({educationArr}) {
             </div>
             <div className="flex gap-2  items-center">
               <p className="italic text-sm">
-                {formatDate(education.startDate)}
+                {() => {
+                  return formatDate(education.startDate) === "present"
+                    ? ""
+                    : formatDate(education.startDate);
+                }}
               </p>
               <p>-</p>
               <p className="italic text-sm">{formatDate(education.endDate)}</p>
