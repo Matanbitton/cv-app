@@ -1,11 +1,18 @@
 import formatDate from "../../tools/formatDate";
 import uniqid from "uniqid";
+import {useContext} from "react";
+import ThemeContext from "../../store/theme-context";
 
 const WorkExpOutput = ({workExpArr}) => {
+  const ctx = useContext(ThemeContext);
+
   return (
     <div className="flex flex-col gap-2  border-sky-500  px-3 ">
       {workExpArr.length >= 1 ? (
-        <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
+        <h1
+          className={`
+            ${ctx.theme.text} ${ctx.theme.border} font-medium   text-lg border-b-2 `}
+        >
           Work Experience
         </h1>
       ) : (

@@ -9,7 +9,8 @@ import FormWorkArr from "./FormWorkArr";
 import FormEducationArr from "./FormEducationArr";
 import FormProjectsArr from "./FormProjectsArr";
 import SuccessModal from "../UI/SuccessModal";
-import {useState} from "react";
+import {useContext, useState} from "react";
+import ThemeContext from "../../store/theme-context";
 
 export default function Form({
   personalInfo,
@@ -36,6 +37,7 @@ export default function Form({
 }) {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [successModalMessage, setSuccessModalMessage] = useState("");
+  const ctx = useContext(ThemeContext);
 
   const handleSuccessModal = () => {
     setShowSuccessModal((prev) => !prev);

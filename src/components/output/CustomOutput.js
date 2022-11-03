@@ -1,11 +1,16 @@
 import formatDate from "../../tools/formatDate";
 import uniqid from "uniqid";
+import ThemeContext from "../../store/theme-context";
+import {useContext} from "react";
 
 export default function WorkExpOutput({custom}) {
+  const ctx = useContext(ThemeContext);
   return (
     <div className="flex flex-col   border-sky-500 px-3">
       {custom.sectionTitle ? (
-        <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
+        <h1
+          className={`font-medium  ${ctx.theme.text} text-lg border-b-2 ${ctx.theme.border}`}
+        >
           {custom.sectionTitle}
         </h1>
       ) : (

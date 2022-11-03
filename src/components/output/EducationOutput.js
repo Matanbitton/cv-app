@@ -1,11 +1,16 @@
 import formatDate from "../../tools/formatDate";
 import uniqid from "uniqid";
+import {useContext} from "react";
+import ThemeContext from "../../store/theme-context";
 
 export default function WorkExpOutput({educationArr}) {
+  const ctx = useContext(ThemeContext);
   return (
     <div className="flex flex-col   border-sky-500 px-3 ">
       {educationArr.length >= 1 ? (
-        <h1 className="font-medium  text-sky-500 text-lg border-b-2 border-sky-500">
+        <h1
+          className={`font-medium  ${ctx.theme.text} text-lg border-b-2 ${ctx.theme.border}`}
+        >
           Education
         </h1>
       ) : (

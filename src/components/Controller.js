@@ -1,12 +1,14 @@
 import {faFileInvoice} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useState, createRef} from "react";
+import {useState, createRef, useContext} from "react";
 import {useReactToPrint} from "react-to-print";
 import uniqid from "uniqid";
 import Form from "./input/Form";
 import CvPreview from "./output/CvPreview";
 import {motion} from "framer-motion";
 import PDFFile from "./output/PDFFile";
+import ThemeContext from "../store/theme-context";
+import Styling from "./input/Styling";
 
 export default function Controller({
   handleSuccessModal,
@@ -199,6 +201,11 @@ export default function Controller({
       return {...prevCustom, [event.target.name]: event.target.value};
     });
   }
+  const [showStyling, setShowStyling] = useState(false);
+
+  function handleShowStyling() {
+    setShowStyling((prev) => !prev);
+  }
 
   const componentRef = createRef();
   const handlePrint = useReactToPrint({
@@ -231,32 +238,58 @@ export default function Controller({
             transition={{ease: "easeIn", duration: 0.4}}
             className="  shadow-lg p-4 rounded-md lg:min-w-[750px]  md:min-w-[550px] min-h-[850px] sm:min-w-[340px] sm:max-w-[50%]  bg-gray-100 text-gray-800"
           >
-            <Form
-              personalInfo={personalInfo}
-              custom={custom}
-              showSummay={showSummay}
-              workExperience={workExperience}
-              education={education}
-              project={project}
-              skills={skills}
-              workArr={workArr}
-              educationArr={educationArr}
-              projectsArr={projectsArr}
-              handleCustom={handleCustom}
-              handleEducation={handleEducation}
-              handleEducationArr={handleEducationArr}
-              handlePersonalInfoChange={handlePersonalInfoChange}
-              handleProject={handleProject}
-              handleProjectsArr={handleProjectsArr}
-              handleSkill={handleSkill}
-              resetSkill={resetSkill}
-              handleSummary={handleSummary}
-              handleWorkArr={handleWorkArr}
-              handleDelete={handleDelete}
-              handleWorkExperience={handleWorkExperience}
-              handleSuccessModal={handleSuccessModal}
-              handleSuccessModalMessage={handleSuccessModalMessage}
-            />
+            <div className="flex w-full justify-evenly shadow-md rounded-md  border-sky-500 border-2">
+              <button
+                onClick={handleShowStyling}
+                className={
+                  !showStyling
+                    ? " w-[50%] rounded border-sky-500 text-lg  bg-slate-800 text-white"
+                    : "w-[50%] hover:bg-sky-500 hover:text-white hover:rounded hover:font-bold text-sky-500"
+                }
+              >
+                Info
+              </button>
+              <button
+                onClick={handleShowStyling}
+                className={
+                  showStyling
+                    ? "w-[50%] rounded border-sky-500 text-lg  bg-slate-800 text-white"
+                    : "w-[50%] hover:bg-sky-500 hover:rounded hover:text-white hover:font-bold text-sky-500 "
+                }
+              >
+                Styling
+              </button>
+            </div>
+
+            {showStyling && <Styling />}
+            {!showStyling && (
+              <Form
+                personalInfo={personalInfo}
+                custom={custom}
+                showSummay={showSummay}
+                workExperience={workExperience}
+                education={education}
+                project={project}
+                skills={skills}
+                workArr={workArr}
+                educationArr={educationArr}
+                projectsArr={projectsArr}
+                handleCustom={handleCustom}
+                handleEducation={handleEducation}
+                handleEducationArr={handleEducationArr}
+                handlePersonalInfoChange={handlePersonalInfoChange}
+                handleProject={handleProject}
+                handleProjectsArr={handleProjectsArr}
+                handleSkill={handleSkill}
+                resetSkill={resetSkill}
+                handleSummary={handleSummary}
+                handleWorkArr={handleWorkArr}
+                handleDelete={handleDelete}
+                handleWorkExperience={handleWorkExperience}
+                handleSuccessModal={handleSuccessModal}
+                handleSuccessModalMessage={handleSuccessModalMessage}
+              />
+            )}
           </motion.div>
           <div className="">
             <CvPreview
