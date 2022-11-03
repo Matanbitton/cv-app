@@ -93,7 +93,7 @@ const Styling = () => {
           <div className="bg-[#5F093D] w-[50%] px-8 rounded-r-lg"></div>
           <button
             className="absolute left-[50%] translate-x-[-50%] translate-y-[-50%]  top-[50%] rounded font-bold hover:text-xl  text-white "
-            onClick={() => ctx.onChangeTheme("royal")}
+            onClick={() => ctx.onChangeTheme("lanister")}
             type="button"
           >
             Lanister
