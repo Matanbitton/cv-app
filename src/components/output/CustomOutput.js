@@ -6,7 +6,7 @@ import {useContext} from "react";
 export default function WorkExpOutput({custom}) {
   const ctx = useContext(ThemeContext);
   return (
-    <div className="flex flex-col   border-sky-500 px-3">
+    <div className="flex flex-col   border-sky-500 px-8">
       {custom.sectionTitle ? (
         <h1
           className={`font-medium  ${ctx.theme.text} text-lg border-b-2 ${ctx.theme.border}`}

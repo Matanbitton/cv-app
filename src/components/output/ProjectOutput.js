@@ -5,7 +5,7 @@ import ThemeContext from "../../store/theme-context";
 export default function ProjectOutput({projectsArr}) {
   const ctx = useContext(ThemeContext);
   return (
-    <div className="flex flex-col  gap-2 border-sky-500 px-3 ">
+    <div className="flex flex-col  gap-2 border-sky-500 px-8 ">
       {projectsArr.length >= 1 ? (
         <h1
           className={`font-medium ${ctx.theme.text} text-lg border-b-2 ${ctx.theme.border}`}

@@ -96,7 +96,7 @@ const Styling = () => {
             onClick={() => ctx.onChangeTheme("royal")}
             type="button"
           >
-            Royal
+            Lanister
           </button>
         </div>
       </div>

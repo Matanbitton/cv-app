@@ -90,7 +90,7 @@ const PersonalInfoOutput = ({personalInfo}) => {
         </div>
       </div>
       {personalInfo.summarySection && (
-        <div className=" w-full  bg-gray-100 px-3 pt-2  ">
+        <div className=" w-full  bg-gray-100 px-8 pt-2  ">
           <h1
             className={`font-medium  ${ctx.theme.text} text-xl border-b-2 ${ctx.theme.border} `}
           >

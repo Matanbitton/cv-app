@@ -6,7 +6,7 @@ export default function WorkExpOutput({skills}) {
   const ctx = useContext(ThemeContext);
 
   return (
-    <div className={`flex flex-col    px-3 `}>
+    <div className={`flex flex-col    px-8`}>
       {skills.skill1 !== "" ? (
         <h1
           className={`font-medium  ${ctx.theme.text} text-lg border-b-2 ${ctx.theme.border}`}

@@ -32,8 +32,8 @@ const CvPreview = ({
         <WorkExpOutput workExpArr={workExpArr} />
         <EducationOutput educationArr={educationArr} />
         <ProjectOutput projectsArr={projectsArr} />
-        <SkillsOutput skills={skills} />
         <CustomOutput custom={custom} />
+        <SkillsOutput skills={skills} />
       </motion.div>
     </div>
   );

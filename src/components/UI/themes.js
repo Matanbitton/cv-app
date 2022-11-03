@@ -41,7 +41,7 @@ const themes = {
     border: "border-[#FA5EAB]",
     icons: "text-[#FA4EAB]",
   },
-  royal: {
+  lanister: {
     bg: "bg-[#5F0933]",
     text: "text-[#DFB160]",
     border: "border-[#DFB160]",
