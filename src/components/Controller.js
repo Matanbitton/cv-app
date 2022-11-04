@@ -203,10 +203,6 @@ export default function Controller({
   }
   const [showStyling, setShowStyling] = useState(false);
 
-  function handleShowStyling() {
-    setShowStyling((prev) => !prev);
-  }
-
   const componentRef = createRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -240,7 +236,7 @@ export default function Controller({
           >
             <div className="flex w-full justify-evenly shadow-md rounded-md  border-sky-500 border-2">
               <button
-                onClick={handleShowStyling}
+                onClick={() => setShowStyling(() => false)}
                 className={
                   !showStyling
                     ? " w-[50%] rounded border-sky-500 text-lg  bg-slate-800 text-white"
@@ -250,7 +246,7 @@ export default function Controller({
                 Info
               </button>
               <button
-                onClick={handleShowStyling}
+                onClick={() => setShowStyling(() => true)}
                 className={
                   showStyling
                     ? "w-[50%] rounded border-sky-500 text-lg  bg-slate-800 text-white"
