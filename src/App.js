@@ -13,10 +13,8 @@ function App() {
   });
   function handleTheme(themeInput) {
     setTheme(() => {
-      console.log(themes[`${themeInput}`]);
       return themes[`${themeInput}`];
     });
-    console.log(theme);
   }
 
   return (
