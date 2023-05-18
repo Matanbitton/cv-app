@@ -44,7 +44,7 @@ export default function Project({
     <div className="flex flex-col gap-2 ">
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
-          <label for="company">Project Name:</label>
+          <label htmlFor="company">Project Name:</label>
           <motion.input
             whileFocus={{scale: 1.05}}
             type="text"
@@ -56,7 +56,7 @@ export default function Project({
           ></motion.input>
         </div>
         <div className="flex flex-col">
-          <label for="position">Tech Used:</label>
+          <label htmlFor="position">Tech Used:</label>
           <motion.input
             whileFocus={{scale: 1.05}}
             type="text"

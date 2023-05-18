@@ -11,7 +11,7 @@ export default function PersonalInfo({
     <div className="flex-col flex gap-2">
       <div className="flex justify-evenly gap-2 sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
-          <label for="firstName">First Name:</label>
+          <label htmlFor="firstName">First Name:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
             className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
@@ -24,11 +24,11 @@ export default function PersonalInfo({
           ></motion.input>
         </div>
         <div className="flex flex-col">
-          <label for="lastName">Last Name:</label>
+          <label htmlFor="lastName">Last Name:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
-            border
+            border="true"
             onChange={handlePersonalInfoChange}
             type="text"
             placeholder="Last Name"
@@ -39,11 +39,11 @@ export default function PersonalInfo({
       </div>
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
-          <label for="phoneNumber">Phone Nubmer:</label>
+          <label htmlFor="phoneNumber">Phone Nubmer:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600 shadow pl-2"
-            border
+            border="true"
             onChange={handlePersonalInfoChange}
             type="tel"
             placeholder="Phone Number"
@@ -53,11 +53,11 @@ export default function PersonalInfo({
           ></motion.input>
         </div>
         <div className="flex flex-col">
-          <label for="email">Email:</label>
+          <label htmlFor="email">Email:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none  invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600 shadow pl-2"
-            border
+            border="true"
             onChange={handlePersonalInfoChange}
             type="email"
             placeholder="Email"
@@ -69,7 +69,7 @@ export default function PersonalInfo({
       </div>
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
-          <label for="linkedinLink">Linkedin Link:</label>
+          <label htmlFor="linkedinLink">Linkedin Link:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
@@ -81,7 +81,7 @@ export default function PersonalInfo({
           ></motion.input>
         </div>
         <div className="flex flex-col">
-          <label for="websiteLink">Portfolio Link:</label>
+          <label htmlFor="websiteLink">Portfolio Link:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
             className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
@@ -94,7 +94,7 @@ export default function PersonalInfo({
         </div>
       </div>
       <span className="flex gap-2 justify-center">
-        <label for="summary">Add Summary Section?</label>
+        <label htmlFor="summary">Add Summary Section?</label>
         <motion.input
           whileFocus={{ scale: 1.05 }}
           className="checked:bg-red-500 bg-slate-700"

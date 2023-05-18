@@ -45,7 +45,7 @@ export default function Education({
     <div className="flex flex-col gap-2 ">
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
-          <label for="company">Institution:</label>
+          <label htmlFor="company">Institution:</label>
           <motion.input
             whileFocus={{scale: 1.05}}
             type="text"
@@ -57,7 +57,7 @@ export default function Education({
           ></motion.input>
         </div>
         <div className="flex flex-col">
-          <label for="position">Degree/Course:</label>
+          <label htmlFor="position">Degree/Course:</label>
           <motion.input
             whileFocus={{scale: 1.05}}
             type="text"
@@ -72,7 +72,7 @@ export default function Education({
       </div>
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
-          <label for="from-date">From Date:</label>
+          <label htmlFor="from-date">From Date:</label>
           <motion.input
             whileFocus={{scale: 1.05}}
             className="w-full md:w-[258px] lg:w-[258px] rounded shadow border text-slate-400  border-slate-400 focus:border-sky-500 focus:outline-none"
@@ -84,7 +84,7 @@ export default function Education({
           ></motion.input>
         </div>
         <div className="flex flex-col">
-          <label for="to-date" className="flex items-center gap-2">
+          <label htmlFor="to-date" className="flex items-center gap-2">
             To Date<p className="text-sm">(leave blank to mark present)</p>
           </label>
           <motion.input
