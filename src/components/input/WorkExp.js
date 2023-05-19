@@ -29,6 +29,7 @@ export default function WorkExp({
       ></motion.input>
     );
   }
+
   function handleBulletPointsInput(e) {
     e.preventDefault();
     if (bulletPointInputArr.length <= 3) {
@@ -44,11 +45,11 @@ export default function WorkExp({
     <div className="flex flex-col gap-2 ">
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
-          <label for="company">Company:</label>
+          <label htmlFor="company">Company:</label>
           <motion.input
             whileFocus={{scale: 1.05}}
             type="text"
-            className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
+            className="rounded pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             id="company"
             placeholder="Company"
             name="company"
@@ -57,11 +58,11 @@ export default function WorkExp({
           ></motion.input>
         </div>
         <div className="flex flex-col">
-          <label for="position">Position:</label>
+          <label htmlFor="position">Position:</label>
           <motion.input
             whileFocus={{scale: 1.05}}
             type="text"
-            className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
+            className="rounded pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             id="position"
             placeholder="Position"
             name="position"
@@ -72,7 +73,7 @@ export default function WorkExp({
       </div>
       <div className="flex justify-evenly sm:flex-col sm:max-w-[300px]">
         <div className="flex flex-col">
-          <label for="from-date">From Date:</label>
+          <label htmlFor="from-date">From Date:</label>
           <motion.input
             whileFocus={{scale: 1.05}}
             className="w-full md:w-[258px] lg:w-[258px] rounded shadow border text-slate-400  border-slate-400 focus:border-sky-500 focus:outline-none"
@@ -84,7 +85,7 @@ export default function WorkExp({
           ></motion.input>
         </div>
         <div className="flex flex-col">
-          <label for="to-date" className="flex items-center gap-2">
+          <label htmlFor="to-date" className="flex items-center gap-2">
             To Date<p className="text-sm">(leave blank to mark present)</p>
           </label>
           <motion.input

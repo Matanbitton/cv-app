@@ -10,7 +10,7 @@ import {
 import uniqid from "uniqid";
 import ThemeContext from "../../store/theme-context";
 import {useContext} from "react";
-import formatDate from "../../tools/formatDate";
+import {formatDate, formatDateOrBlank} from "../../tools/formatDate";
 
 //this file length is sub optimal to say the least and it can be broken down to multiple componenets
 //Altough due to npm react-to-print issue related to printing multiple components
@@ -194,11 +194,7 @@ const PDFFile = forwardRef(
                 </div>
                 <div className="flex gap-2  items-center">
                   <p className="italic text-sm">
-                    {() => {
-                      return formatDate(work.startDate) === "present"
-                        ? ""
-                        : formatDate(work.startDate);
-                    }}
+                    {formatDateOrBlank(work.startDate)}
                   </p>
                   <p>-</p>
                   <p className="italic text-sm">{formatDate(work.endDate)}</p>
@@ -326,11 +322,11 @@ const PDFFile = forwardRef(
                 </div>
                 <div className="flex gap-2  items-center">
                   <p className="italic text-sm">
-                    {() => {
+                    {formatDateOrBlank(education.startDate) /*() => {
                       return formatDate(education.startDate) === "present"
                         ? ""
                         : formatDate(education.startDate);
-                    }}
+                    }*/}
                   </p>
                   <p>-</p>
                   <p className="italic text-sm">

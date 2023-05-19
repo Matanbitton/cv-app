@@ -1,4 +1,4 @@
-import formatDate from "../../tools/formatDate";
+import {formatDate} from "../../tools/formatDate";
 import uniqid from "uniqid";
 import {useContext} from "react";
 import ThemeContext from "../../store/theme-context";

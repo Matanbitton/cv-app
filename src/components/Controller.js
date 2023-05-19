@@ -1,13 +1,12 @@
 import {faFileInvoice} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useState, createRef, useContext} from "react";
+import {useState, createRef} from "react";
 import {useReactToPrint} from "react-to-print";
 import uniqid from "uniqid";
 import Form from "./input/Form";
 import CvPreview from "./output/CvPreview";
 import {motion} from "framer-motion";
 import PDFFile from "./output/PDFFile";
-import ThemeContext from "../store/theme-context";
 import Styling from "./input/Styling";
 
 export default function Controller({

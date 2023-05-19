@@ -37,7 +37,7 @@ export default function Skills({
     <div className="flex flex-col    gap-2  ">
       <div className="flex justify-center items-center">
         <div className="flex flex-col w-[90%]">
-          <label for="company">Skill:</label>
+          <label htmlFor="company">Skill:</label>
 
           {skillsInputArr}
           <motion.button
