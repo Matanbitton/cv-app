@@ -5,7 +5,7 @@ export default function PersonalInfo({
   handlePersonalInfoChange,
   personalInfo,
   handleSummary,
-  showSummay,
+  showSummary,
 }) {
   return (
     <div className="flex-col flex gap-2">
@@ -14,7 +14,7 @@ export default function PersonalInfo({
           <label htmlFor="firstName">First Name:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
-            className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
+            className="rounded pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             onChange={handlePersonalInfoChange}
             type="text"
             placeholder="First Name"
@@ -27,7 +27,7 @@ export default function PersonalInfo({
           <label htmlFor="lastName">Last Name:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
-            className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
+            className="form-input"
             border="true"
             onChange={handlePersonalInfoChange}
             type="text"
@@ -42,7 +42,7 @@ export default function PersonalInfo({
           <label htmlFor="phoneNumber">Phone Nubmer:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
-            className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600 shadow pl-2"
+            className="form-input invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600"
             border="true"
             onChange={handlePersonalInfoChange}
             type="tel"
@@ -56,7 +56,7 @@ export default function PersonalInfo({
           <label htmlFor="email">Email:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
-            className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none  invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600 shadow pl-2"
+            className="form-input invalid:border-pink-500  focus:invalid:border-pink-500 focus:invalid:ring-pink-500 invalid:text-pink-600"
             border="true"
             onChange={handlePersonalInfoChange}
             type="email"
@@ -72,7 +72,7 @@ export default function PersonalInfo({
           <label htmlFor="linkedinLink">Linkedin Link:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
-            className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
+            className="form-input"
             onChange={handlePersonalInfoChange}
             type="text"
             placeholder="Linkedin Link"
@@ -84,7 +84,7 @@ export default function PersonalInfo({
           <label htmlFor="websiteLink">Portfolio Link:</label>
           <motion.input
             whileFocus={{ scale: 1.05 }}
-            className="rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2"
+            className="form-input"
             onChange={handlePersonalInfoChange}
             type="text"
             placeholder="Portfolio Website / Github Link"
@@ -104,14 +104,14 @@ export default function PersonalInfo({
           onChange={handleSummary}
         ></motion.input>
       </span>
-      {showSummay && (
+      {showSummary && (
         <div className="flex justify-center">
           <textarea
             placeholder="Write a descriptive summary about you here..."
             value={personalInfo.summarySection}
             name="summarySection"
             onChange={handlePersonalInfoChange}
-            className=" h-24 w-[80%] p-2 border focus:border-sky-500 focus:outline-none"
+            className="h-24 w-[80%] p-2 border focus:border-sky-500 focus:outline-none"
           ></textarea>
         </div>
       )}

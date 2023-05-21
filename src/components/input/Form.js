@@ -9,12 +9,13 @@ import FormWorkArr from "./FormWorkArr";
 import FormEducationArr from "./FormEducationArr";
 import FormProjectsArr from "./FormProjectsArr";
 import SuccessModal from "../UI/SuccessModal";
-import {useState} from "react";
+import { useState } from "react";
+import "../../styles/styles.css";
 
 export default function Form({
   personalInfo,
   custom,
-  showSummay,
+  showSummary,
   education,
   project,
   skills,
@@ -48,25 +49,21 @@ export default function Form({
     setSuccessModalMessage(message);
   };
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full">
       {showSuccessModal && <SuccessModal message={successModalMessage} />}
 
       <form className="">
         <fieldset className="flex flex-col gap-2 ">
-          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
-            Personal Information
-          </h1>
+          <h1 className="form-title">Personal Information</h1>
           <PersonalInfoInput
             handlePersonalInfoChange={handlePersonalInfoChange}
             personalInfo={personalInfo}
             handleSummary={handleSummary}
-            showSummay={showSummay}
+            showSummary={showSummary}
           />
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
-          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
-            Work Experience
-          </h1>
+          <h1 className="form-title">Work Experience</h1>
           <WorkExp
             key={uniqid}
             handleWorkExperience={handleWorkExperience}
@@ -79,9 +76,7 @@ export default function Form({
           <FormWorkArr handleDelete={handleDelete} workArr={workArr} />
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
-          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
-            Education
-          </h1>
+          <h1 className="form-title">Education</h1>
           <Education
             handleEducation={handleEducation}
             education={education}
@@ -96,9 +91,7 @@ export default function Form({
           />
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
-          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
-            Projects
-          </h1>
+          <h1 className="form-title">Projects</h1>
 
           <Project
             handleProject={handleProject}
@@ -114,9 +107,7 @@ export default function Form({
           />
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
-          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
-            Skills
-          </h1>
+          <h1 className="form-title">Skills</h1>
 
           <Skills
             handleSkill={handleSkill}
@@ -126,9 +117,7 @@ export default function Form({
           />
         </fieldset>
         <fieldset className="flex flex-col gap-2 ">
-          <h1 className="text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2">
-            Custom
-          </h1>
+          <h1 className="form-title">Custom</h1>
 
           <Custom
             handleCustom={handleCustom}

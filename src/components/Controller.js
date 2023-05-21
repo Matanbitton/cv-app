@@ -1,11 +1,11 @@
-import {faFileInvoice} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {useState, createRef} from "react";
-import {useReactToPrint} from "react-to-print";
+import { faFileInvoice } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState, createRef } from "react";
+import { useReactToPrint } from "react-to-print";
 import uniqid from "uniqid";
 import Form from "./input/Form";
 import CvPreview from "./output/CvPreview";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 import PDFFile from "./output/PDFFile";
 import Styling from "./input/Styling";
 
@@ -22,7 +22,7 @@ export default function Controller({
     websiteLink: "",
     summarySection: "",
   });
-  const [showSummay, setShowSummary] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
 
   const [workExperience, setWorkExperience] = useState({
     company: "",
@@ -87,7 +87,7 @@ export default function Controller({
 
   function handlePersonalInfoChange(event) {
     setPersonalInfo((prevInfo) => {
-      return {...prevInfo, [event.target.name]: event.target.value};
+      return { ...prevInfo, [event.target.name]: event.target.value };
     });
   }
   function handleSummary() {
@@ -96,11 +96,11 @@ export default function Controller({
 
   function handleWorkExperience(event) {
     setWorkExperience((prevWork) => {
-      return {...prevWork, [event.target.name]: event.target.value};
+      return { ...prevWork, [event.target.name]: event.target.value };
     });
   }
   function handleWorkArr() {
-    setWorkArr((prevArr) => [...prevArr, {...workExperience, id: uniqid()}]);
+    setWorkArr((prevArr) => [...prevArr, { ...workExperience, id: uniqid() }]);
     setWorkExperience((prevWork) => {
       return {
         ...prevWork,
@@ -135,11 +135,11 @@ export default function Controller({
 
   function handleEducation(event) {
     setEducation((prevEducation) => {
-      return {...prevEducation, [event.target.name]: event.target.value};
+      return { ...prevEducation, [event.target.name]: event.target.value };
     });
   }
   function handleEducationArr() {
-    setEducationArr((prevArr) => [...prevArr, {...education, id: uniqid()}]);
+    setEducationArr((prevArr) => [...prevArr, { ...education, id: uniqid() }]);
     setEducation(() => {
       return {
         institution: "",
@@ -155,11 +155,11 @@ export default function Controller({
   }
   function handleProject(event) {
     setProject((prevProject) => {
-      return {...prevProject, [event.target.name]: event.target.value};
+      return { ...prevProject, [event.target.name]: event.target.value };
     });
   }
   function handleProjectsArr() {
-    setProjectsArr((prevArr) => [...prevArr, {...project, id: uniqid()}]);
+    setProjectsArr((prevArr) => [...prevArr, { ...project, id: uniqid() }]);
     setProject(() => {
       return {
         projectName: "",
@@ -174,7 +174,7 @@ export default function Controller({
   function handleSkill(event) {
     event.preventDefault();
     setSkill((prevSkill) => {
-      return {...prevSkill, [event.target.name]: event.target.value};
+      return { ...prevSkill, [event.target.name]: event.target.value };
     });
   }
   function resetSkill(event) {
@@ -197,7 +197,7 @@ export default function Controller({
   function handleCustom(event) {
     event.preventDefault();
     setCustom((prevCustom) => {
-      return {...prevCustom, [event.target.name]: event.target.value};
+      return { ...prevCustom, [event.target.name]: event.target.value };
     });
   }
   const [showStyling, setShowStyling] = useState(false);
@@ -208,50 +208,46 @@ export default function Controller({
   });
 
   return (
-    <div className=" flex flex-col relative ">
+    <div className="relative flex flex-col">
       <motion.div
-        animate={{y: 0}}
-        initial={{y: -100}}
-        transition={{ease: "easeIn", duration: 0.4}}
-        className="header  flex gap-5 sm:gap-0 sm:flex-col box-border bg-sky-500 text-white text-xxl  p-3 pb-24 justify-between items-center font-bold w-full "
-      >
-        <p className="text-4xl text-center pl-4 sm:pl-0 sm:text-2xl ">
+        animate={{ y: 0 }}
+        initial={{ y: -100 }}
+        transition={{ ease: "easeIn", duration: 0.4 }}
+        className="header text-xxl box-border flex w-full items-center justify-between gap-5 bg-sky-500 p-3 pb-24 font-bold text-white sm:flex-col sm:gap-0 ">
+        <p className="pl-4 text-center text-4xl sm:pl-0 sm:text-2xl ">
           Easy CV
         </p>
         <div className="flex">
-          <p className="text-xl text-center  pr-4 sm:pr-0 sm:text-lg">
+          <p className="pr-4 text-center text-xl sm:pr-0 sm:text-lg">
             The easier way to build a resume
           </p>
         </div>
       </motion.div>
 
-      <div className="flex  justify-center items-center ">
-        <div className="  absolute top-20 flex gap-5 justify-evenly sm:items-center sm:flex-col md:flex-col lg:flex-row ">
+      <div className="flex items-center justify-center ">
+        <div className="absolute top-20 flex justify-evenly gap-5 sm:flex-col sm:items-center md:flex-col lg:flex-row ">
           <motion.div
-            animate={{y: 0}}
-            initial={{y: 100}}
-            transition={{ease: "easeIn", duration: 0.4}}
-            className="  shadow-lg p-4 rounded-md lg:min-w-[750px]  md:min-w-[550px] min-h-[850px] sm:min-w-[340px] sm:max-w-[50%]  bg-gray-100 text-gray-800"
-          >
-            <div className="flex w-full justify-evenly shadow-md rounded-md  border-sky-500 border-2">
+            animate={{ y: 0 }}
+            initial={{ y: 100 }}
+            transition={{ ease: "easeIn", duration: 0.4 }}
+            className="min-h-[850px] rounded-md bg-gray-100 p-4 text-gray-800 shadow-lg sm:min-w-[340px] sm:max-w-[50%] md:min-w-[550px] lg:min-w-[750px]">
+            <div className="flex w-full justify-evenly rounded-md border-2  border-sky-500 shadow-md">
               <button
                 onClick={() => setShowStyling(() => false)}
-                className={
-                  !showStyling
-                    ? " w-[50%] rounded border-sky-500 text-lg  bg-slate-800 text-white"
-                    : "w-[50%] hover:bg-sky-500 hover:text-white hover:rounded hover:font-bold text-sky-500"
-                }
-              >
+                className={"w-[50%] " + 
+                  (!showStyling
+                    ? "rounded border-sky-500 bg-slate-800  text-lg text-white"
+                    : "text-sky-500 hover:rounded hover:bg-sky-500 hover:font-bold hover:text-white")
+                }>
                 Info
               </button>
               <button
                 onClick={() => setShowStyling(() => true)}
-                className={
-                  showStyling
-                    ? "w-[50%] rounded border-sky-500 text-lg  bg-slate-800 text-white"
-                    : "w-[50%] hover:bg-sky-500 hover:rounded hover:text-white hover:font-bold text-sky-500 "
-                }
-              >
+                className={"w-[50%] " + 
+                  (showStyling
+                    ? "rounded border-sky-500 bg-slate-800  text-lg text-white"
+                    : "text-sky-500 hover:rounded hover:bg-sky-500 hover:font-bold hover:text-white ")
+                }>
                 Styling
               </button>
             </div>
@@ -261,7 +257,7 @@ export default function Controller({
               <Form
                 personalInfo={personalInfo}
                 custom={custom}
-                showSummay={showSummay}
+                showSummary={showSummary}
                 workExperience={workExperience}
                 education={education}
                 project={project}
@@ -307,21 +303,19 @@ export default function Controller({
               />
             </div>
             <motion.button
-              whileTap={{scale: 0.8}}
-              className="bg-sky-500 rounded mt-5 px-2 py-1 sm:hidden md:hidden text-white font-bold"
-              onClick={handlePrint}
-            >
+              whileTap={{ scale: 0.8 }}
+              className="mt-5 rounded bg-sky-500 px-2 py-1 font-bold text-white sm:hidden md:hidden"
+              onClick={handlePrint}>
               Export Resume
             </motion.button>
           </div>
         </div>
         <motion.button
           onClick={handlePrint}
-          animate={{opacity: 1, scale: 1}}
-          initial={{opacity: 0.2, scale: 0}}
-          transition={{ease: "easeInOut", duration: 0.4}}
-          className=" lg:hidden md:block sm:block fixed bg-sky-500 border-2 border-sky-500 text-white rounded-md px-2 w-full text-2xl bottom-[0px] font-bold "
-        >
+          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0.2, scale: 0 }}
+          transition={{ ease: "easeInOut", duration: 0.4 }}
+          className="fixed bottom-[0px] w-full rounded-md border-2 border-sky-500 bg-sky-500 px-2 text-2xl font-bold text-white sm:block md:block lg:hidden ">
           <FontAwesomeIcon icon={faFileInvoice} /> Preview/Export
         </motion.button>
       </div>

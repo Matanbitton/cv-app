@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-title {
+  @apply text-sky-500 text-2xl font-bold text-left pl-6 sm:pl-0 py-2;
+}
+
+.form-input{
+  @apply rounded border border-slate-400 focus:border-sky-500 focus:outline-none shadow pl-2;
+}

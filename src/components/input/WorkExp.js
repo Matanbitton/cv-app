@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import uniqid from "uniqid";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function WorkExp({
   handleWorkExperience,
@@ -13,12 +13,12 @@ export default function WorkExp({
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
   function addBulletPointInput() {
-    let bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
+    const bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
 
     return (
       <motion.input
-        whileFocus={{scale: 1.05}}
-        className=" pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
+        whileFocus={{ scale: 1.05 }}
+        className="pl-2 w-full rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
         type="text"
         id="bulletPoints"
         placeholder="EXAMPLE: Increased company's revenue by..."
@@ -47,7 +47,7 @@ export default function WorkExp({
         <div className="flex flex-col">
           <label htmlFor="company">Company:</label>
           <motion.input
-            whileFocus={{scale: 1.05}}
+            whileFocus={{ scale: 1.05 }}
             type="text"
             className="rounded pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             id="company"
@@ -60,7 +60,7 @@ export default function WorkExp({
         <div className="flex flex-col">
           <label htmlFor="position">Position:</label>
           <motion.input
-            whileFocus={{scale: 1.05}}
+            whileFocus={{ scale: 1.05 }}
             type="text"
             className="rounded pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             id="position"
@@ -75,7 +75,7 @@ export default function WorkExp({
         <div className="flex flex-col">
           <label htmlFor="from-date">From Date:</label>
           <motion.input
-            whileFocus={{scale: 1.05}}
+            whileFocus={{ scale: 1.05 }}
             className="w-full md:w-[258px] lg:w-[258px] rounded shadow border text-slate-400  border-slate-400 focus:border-sky-500 focus:outline-none"
             type="date"
             id="from-date"
@@ -89,7 +89,7 @@ export default function WorkExp({
             To Date<p className="text-sm">(leave blank to mark present)</p>
           </label>
           <motion.input
-            whileFocus={{scale: 1.05}}
+            whileFocus={{ scale: 1.05 }}
             className=" w-full md:w-[258px] lg:w-[258px] rounded shadow text-slate-400 border border-slate-400 focus:border-sky-500 focus:outline-none"
             type="date"
             id="to-date"
@@ -104,7 +104,7 @@ export default function WorkExp({
           <label>Bullet Points: (4 Max)</label>
           <div className="flex flex-col gap-2">{bulletPointInputArr}</div>
           <motion.button
-            whileTap={{scale: 0.8}}
+            whileTap={{ scale: 0.8 }}
             onClick={handleBulletPointsInput}
             className=" w-full bg-slate-400 text-white rounded"
           >
@@ -112,9 +112,9 @@ export default function WorkExp({
           </motion.button>
         </div>
       </div>
-      <div className=" flex justify-evenly gap-2 py-2 ">
+      <div className="flex justify-evenly gap-2 py-2 ">
         <motion.button
-          whileTap={{scale: 0.8}}
+          whileTap={{ scale: 0.8 }}
           type={"button"}
           onClick={() => {
             handleWorkArr();

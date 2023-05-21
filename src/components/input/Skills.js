@@ -11,7 +11,7 @@ export default function Skills({
   const [skillsInputArr, setSkillsInputArr] = useState([]);
 
   function addSkillInput() {
-    let skillNumber = `skill${skillsInputArr.length + 1}`;
+    const skillNumber = `skill${skillsInputArr.length + 1}`;
 
     return (
       <motion.input

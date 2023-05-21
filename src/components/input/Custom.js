@@ -12,7 +12,7 @@ export default function Custom({
   const [showDate, setShowDate] = useState(false);
 
   function addBulletPointInput() {
-    let bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
+    const bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
 
     return (
       <motion.input
@@ -28,12 +28,14 @@ export default function Custom({
       ></motion.input>
     );
   }
+
   function handleBulletPointsInput(e) {
     e.preventDefault();
     if (bulletPointInputArr.length <= 3) {
       setBulletPointArr((prevArr) => [...prevArr, addBulletPointInput()]);
     }
   }
+
   function handleShowDate(e) {
     e.preventDefault();
     setShowDate((prevShowDate) => !prevShowDate);
@@ -47,7 +49,7 @@ export default function Custom({
           <motion.input
             whileFocus={{scale: 1.05}}
             type="text"
-            className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
+            className="rounded pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
             placeholder="EXAMPLE: Awards/ Volunteer work .."
             name="sectionTitle"
             onChange={handleCustom}
@@ -59,8 +61,8 @@ export default function Custom({
           <motion.input
             whileFocus={{scale: 1.05}}
             type="text"
-            className="rounded   pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
-            placeholder="EXAPLME: Dog Shelter/ Gold Medalist ..."
+            className="rounded pl-2 shadow border border-slate-400 focus:border-sky-500 focus:outline-none"
+            placeholder="EXAMPLE: Dog Shelter/ Gold Medalist ..."
             name="header"
             onChange={handleCustom}
             value={custom.header}

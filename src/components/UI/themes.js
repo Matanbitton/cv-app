@@ -5,7 +5,7 @@ const themes = {
     border: "border-sky-400",
     icons: "text-sky-600",
   },
-  marshmallo: {
+  marshmallow: {
     bg: "bg-[#372948]",
     text: "text-pink-400",
     border: "border-pink-400",

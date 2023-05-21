@@ -13,7 +13,7 @@ export default function Project({
   const [bulletPointInputArr, setBulletPointArr] = useState([]);
 
   function addBulletPointInput() {
-    let bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
+    const bulletPointName = `bulletPoint${bulletPointInputArr.length + 1}`;
 
     return (
       <motion.input

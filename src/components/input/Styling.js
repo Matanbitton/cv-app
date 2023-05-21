@@ -1,7 +1,6 @@
 import React from "react";
 import {useContext} from "react";
 import ThemeContext from "../../store/theme-context";
-import {motion} from "framer-motion";
 
 const Styling = () => {
   const ctx = useContext(ThemeContext);
@@ -15,10 +14,10 @@ const Styling = () => {
           <div className="bg-pink-400 w-[50%] px-8 rounded-r-lg py-4"></div>
           <button
             className="absolute left-[50%] translate-x-[-50%] translate-y-[-50%] text-md top-[50%] rounded hover:text-xl font-bold  text-white "
-            onClick={() => ctx.onChangeTheme("marshmallo")}
+            onClick={() => ctx.onChangeTheme("marshmallow")}
             type="button"
           >
-            Marshmallo
+            Marshmallow
           </button>
         </div>
         <div className="relative flex h-12 sm:w-full">
